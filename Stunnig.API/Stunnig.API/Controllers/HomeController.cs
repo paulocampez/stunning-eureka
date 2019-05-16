@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Stunnig.API.Models;
+using Stunnig.API.Models.Strategies;
+using Stunnig.API.Models.Strategies.Database;
+using static Stunnig.API.Models.DDD;
 
 namespace Stunnig.API.Controllers
 {
@@ -12,6 +15,10 @@ namespace Stunnig.API.Controllers
     {
         public IActionResult Index()
         {
+            List<Funcionario> lstFuncionario = new List<Funcionario>();
+
+            var context = new Base(new FileStrategy());
+            context.GetFuncionarios();
             return View();
         }
 
