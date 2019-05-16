@@ -18,8 +18,8 @@ namespace Stunnig.API.Controllers
             List<Funcionario> lstFuncionario = new List<Funcionario>();
 
             var context = new Base(new FileStrategy());
-            context.GetFuncionarios();
-            return View();
+            lstFuncionario = context.GetFuncionarios();
+            return View(lstFuncionario);
         }
 
         public IActionResult Privacy()
