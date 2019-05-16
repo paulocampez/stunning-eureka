@@ -17,38 +17,26 @@ namespace Stunnig.API.Controllers
     public class HomeController : Controller
     {
         /// <summary>
-        /// Transforma uma temperatura em Fahrenheit para o equivalente
-        /// nas escalas Celsius e Kelvin.
+        /// 
         /// </summary>
-        ///// <param name="temperatura">Temperatura em Fahrenheit</param>
-        /// <returns>Objeto contendo valores para uma temperatura
-        /// nas escalas Fahrenheit, Celsius e Kelvin.</returns>
+        /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet]
-        public List<Funcionarios> GetTodosFuncionarios()
+        public List<Funcionarios> Get()
         {
             var context = new Context(new FileStrategy());
             return context.GetFuncionarios();
         }
-        //[Microsoft.AspNetCore.Mvc.HttpGet]
-        //public IActionResult Index()
-        //{
-        //    List<Funcionarios> lstFuncionario = new List<Funcionarios>();
-        //    var context = new Context(new FileStrategy());
-        //    lstFuncionario = context.GetFuncionarios();
-        //    return View(lstFuncionario);
-        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cargo"></param>
+        /// <returns></returns>
+        [Microsoft.AspNetCore.Mvc.HttpGet("BuscaCargo/{cargo}")]
+        public List<Funcionarios> Get(string cargo)
+        {
+            var context = new Context(new FileStrategy());
+            return context.GetFuncionariosPorCargo(cargo);
+        }
 
-
-        //[Microsoft.AspNetCore.Mvc.HttpGet]
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-        //[Microsoft.AspNetCore.Mvc.HttpGet]
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
     }
 }

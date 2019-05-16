@@ -42,6 +42,7 @@ namespace Stunning.MVC.Controllers
             }
         }
 
+
         public IActionResult Privacy()
         {
             return View();

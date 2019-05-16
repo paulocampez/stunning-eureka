@@ -51,7 +51,12 @@ namespace Stunnig.API
                 c.RoutePrefix = string.Empty;
             });
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes
+                    .MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}")
+                    .MapRoute(name: "api", template: "api/{controller}/{action}/{id?}");
+            });
         }
     }
 }
