@@ -11,16 +11,28 @@ using static Stunnig.API.Models.DDD;
 
 namespace Stunnig.API.Controllers
 {
+    [Route("api/Home")]
+    [ApiController]
     public class HomeController : Controller
     {
+
+        // GET: api/<controller>
+        [HttpGet]
+        public List<Funcionario> GetTodosFuncionarios()
+        {
+            var context = new Context(new FileStrategy());
+            return context.GetFuncionarios();
+        }
+        
         public IActionResult Index()
         {
             List<Funcionario> lstFuncionario = new List<Funcionario>();
-
-            var context = new Base(new FileStrategy());
+            var context = new Context(new FileStrategy());
             lstFuncionario = context.GetFuncionarios();
             return View(lstFuncionario);
         }
+
+
 
         public IActionResult Privacy()
         {

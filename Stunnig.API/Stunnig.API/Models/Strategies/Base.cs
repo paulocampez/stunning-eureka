@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Stunnig.API.Models.Strategies
 {
-    public class Base : IFuncionarioREST
+    public class Context : IFuncionarioREST
     {
         private IFuncionarioREST _funcionarioRest;
 
-        public Base(IFuncionarioREST iFuncionarioREST)
+        public Context(IFuncionarioREST iFuncionarioREST)
         {
             _funcionarioRest = iFuncionarioREST;
         }
