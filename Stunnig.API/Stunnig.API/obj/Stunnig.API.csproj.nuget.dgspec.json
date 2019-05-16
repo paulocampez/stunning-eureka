@@ -30,7 +30,11 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj": {
+                "projectPath": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -74,6 +78,17 @@
           "assetTargetFallback": true,
           "warn": true
         }
+      }
+    },
+    "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj",
+        "projectName": "Stunning.Model",
+        "projectPath": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj"
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }

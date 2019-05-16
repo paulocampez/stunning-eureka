@@ -28,6 +28,7 @@
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4",
           "Microsoft.NETCore.App": "2.2.0",
+          "Stunning.Model": "1.0.0",
           "Swashbuckle.AspNetCore": "4.0.1"
         },
         "runtime": {
@@ -212,6 +213,14 @@
           "System.Reflection.Extensions": "4.3.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "Stunning.Model/1.0.0": {
+        "runtime": {
+          "Stunning.Model.dll": {}
+        },
+        "compile": {
+          "Stunning.Model.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3419,6 +3428,11 @@
       "sha512": "sha512-7MTg+sepZEyrUvGHo163pj6fBdM52V6tG2P6KrTuCiytDl4knwnoOq9cNm61/9+ooRvTt9kl31yvQ2cAVC7w4w==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+    },
+    "Stunning.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stunning.Model.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,9 @@ namespace Stunning.Model
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime? DataCad { get; set; }
-        public string Cargo { get; set; } //TODO: Enum
+        public string Cargo { get; set; }
         public string UfNasc { get; set; }
         public decimal? Salario { get; set; }
-        public string Status { get; set; } //TODO: Enum
+        public string Status { get; set; }
     }
 }

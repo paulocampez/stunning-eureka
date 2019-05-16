@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Stunnig.API.Models;
 using Stunnig.API.Models.Strategies;
 using Stunnig.API.Models.Strategies.Database;
-using static Stunnig.API.Models.DDD;
+using Stunning.Model;
 
 namespace Stunnig.API.Controllers
 {
@@ -18,7 +18,7 @@ namespace Stunnig.API.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        public List<Funcionario> GetTodosFuncionarios()
+        public List<Funcionarios> GetTodosFuncionarios()
         {
             var context = new Context(new FileStrategy());
             return context.GetFuncionarios();
@@ -26,7 +26,7 @@ namespace Stunnig.API.Controllers
         
         public IActionResult Index()
         {
-            List<Funcionario> lstFuncionario = new List<Funcionario>();
+            List<Funcionarios> lstFuncionario = new List<Funcionarios>();
             var context = new Context(new FileStrategy());
             lstFuncionario = context.GetFuncionarios();
             return View(lstFuncionario);

@@ -1,4 +1,5 @@
 ﻿using Stunnig.API.Models.Strategies.Database;
+using Stunning.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Stunnig.API.Models.Strategies
         //    return _funcionarioRest.Delete();
         //}
 
-        public List<DDD.Funcionario> GetFuncionarios()
+        public List<Funcionarios> GetFuncionarios()
         {
             return _funcionarioRest.GetFuncionarios();
         }
@@ -30,10 +31,10 @@ namespace Stunnig.API.Models.Strategies
         //    return _funcionarioRest.GetFuncionariosAgrupadosPorUF();
         //}
 
-        //public List<DDD.Funcionario> GetFuncionariosPorCargo()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public List<Funcionarios> GetFuncionariosPorCargo()
+        {
+            return _funcionarioRest.GetFuncionariosPorCargo();
+        }
 
         //public List<DDD.Funcionario> GetFuncionariosPorCPF()
         //{
@@ -50,10 +51,10 @@ namespace Stunnig.API.Models.Strategies
         //    throw new NotImplementedException();
         //}
 
-        //public List<DDD.Funcionario> GetFuncionariosPorNome()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public List<Funcionarios> GetFuncionariosPorNome(string nome)
+        {
+            throw new NotImplementedException();
+        }
 
         //public List<DDD.Funcionario> GetFuncionariosPorStatus()
         //{

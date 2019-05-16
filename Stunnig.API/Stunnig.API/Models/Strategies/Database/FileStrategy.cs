@@ -4,16 +4,17 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using static Stunnig.API.Models.DDD;
+using Stunning.Model;
 
 namespace Stunnig.API.Models.Strategies.Database
 {
     public class FileStrategy : IFuncionarioREST
     {
-
-        public List<DDD.Funcionario> ReadConfigFile(string pathConfigFile)
+        string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+        string path = "\\funcionarios.txt";
+        public List<Funcionarios> GetFuncionariosPorArquivo(string pathConfigFile)
         {
-            List<DDD.Funcionario> lstFuncionarios = new List<DDD.Funcionario>();
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
             DateTime dateResult = new DateTime();
             var culture = CultureInfo.CreateSpecificCulture("en-US");
             var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
@@ -26,9 +27,7 @@ namespace Stunnig.API.Models.Strategies.Database
             for (int i = 1; i < configInformation.Count; i++)
             {
                 var arrayFuncionario = configInformation[i].Split(';').ToList();
-                //DataCad;Cargo;Cpf;Nome;UfNasc;Salario;Status
-                //15/04/2017;Dev Jr;85235708709;Aaron Aaberg;AP;8965.30;ATIVO
-                Funcionario funcionario = new Funcionario();
+                Funcionarios funcionario = new Funcionarios();
                 if (DateTime.TryParse(arrayFuncionario[0].ToString(), out dateResult))
                     funcionario.DataCad = dateResult;
                 funcionario.Cargo = arrayFuncionario[1].ToString();
@@ -44,11 +43,37 @@ namespace Stunnig.API.Models.Strategies.Database
 
             return lstFuncionarios;
         }
-        public List<DDD.Funcionario> GetFuncionarios()
+        public List<Funcionarios> GetFuncionarios()
         {
-            string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-            string path = "\\funcionarios.txt";
-            return ReadConfigFile(_filePath += path);
+
+            return GetFuncionariosPorArquivo(_filePath += path);
+        }
+
+        public List<Funcionarios> GetFuncionariosPorNome(string nome)
+        {
+            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Nome == nome).ToList();
+        }
+
+        public List<Funcionarios> GetFuncionariosPorCPF(string cpf)
+        {
+            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Cpf == cpf).ToList();
+        }
+
+        public List<Funcionarios> GetFuncionariosPorCargo(string cargo)
+        {
+            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Cargo == cargo).ToList();
+        }
+
+        public List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2)
+        {
+            var minValue = faixa1 < faixa2 ? faixa1 : faixa2;
+            var maxValue = faixa1 > faixa2 ? faixa1 : faixa2;
+            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Salario >= minValue && p.Salario <= maxValue).ToList();
+        }
+
+        public List<Funcionarios> GetFuncionariosPorStatus(string status)
+        {
+            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Status == status).ToList();
         }
     }
 }

@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static Stunnig.API.Models.DDD;
+using Stunning.Model;
 
 namespace Stunnig.API.Models.Strategies.Database
 {
     public interface IFuncionarioREST
     {
-        List<Funcionario> GetFuncionarios();
+        List<Funcionarios> GetFuncionarios();
         //bool Insert();
         //bool Put();
         //bool Delete();
-        //List<Funcionario> GetFuncionariosPorNome();
-        //List<Funcionario> GetFuncionariosPorCPF();
-        //List<Funcionario> GetFuncionariosPorCargo();
+        List<Funcionarios> GetFuncionariosPorNome(string nome);
+        List<Funcionarios> GetFuncionariosPorCPF(string cpf);
+        List<Funcionarios> GetFuncionariosPorCargo(string cargo);
         //List<Funcionario> GetFuncionariosPorData();
         //List<Funcionario> GetFuncionariosAgrupadosPorUF();
-        //List<Funcionario> GetFuncionariosPorFaixaSalarial();
-        //List<Funcionario> GetFuncionariosPorStatus();
+        List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2);
+        List<Funcionarios> GetFuncionariosPorStatus(string status);
     }
 }
