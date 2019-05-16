@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Stunnig.API</name>
+    </assembly>
+    <members>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetTodosFuncionarios">
+            <returns>Objeto contendo valores para uma temperatura
+            nas escalas Fahrenheit, Celsius e Kelvin.</returns>
+        </member>
+    </members>
+</doc>

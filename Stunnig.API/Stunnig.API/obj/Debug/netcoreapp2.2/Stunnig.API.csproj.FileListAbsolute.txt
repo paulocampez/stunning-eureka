@@ -30,3 +30,4 @@ C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunnig.API\obj\D
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunnig.API\obj\Debug\netcoreapp2.2\Stunnig.API.csproj.CopyComplete
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunnig.API\bin\Debug\netcoreapp2.2\Stunning.Model.dll
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunnig.API\bin\Debug\netcoreapp2.2\Stunning.Model.pdb
+C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunnig.API\bin\Debug\netcoreapp2.2\Stunnig.API.xml

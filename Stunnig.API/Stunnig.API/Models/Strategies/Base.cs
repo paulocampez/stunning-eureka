@@ -31,9 +31,19 @@ namespace Stunnig.API.Models.Strategies
         //    return _funcionarioRest.GetFuncionariosAgrupadosPorUF();
         //}
 
-        public List<Funcionarios> GetFuncionariosPorCargo()
+        public List<Funcionarios> GetFuncionariosPorCargo(string cargo)
         {
-            return _funcionarioRest.GetFuncionariosPorCargo();
+            return _funcionarioRest.GetFuncionariosPorCargo(cargo);
+        }
+
+        public List<Funcionarios> GetFuncionariosPorCPF(string cpf)
+        {
+            return _funcionarioRest.GetFuncionariosPorCPF(cpf);
+        }
+
+        public List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2)
+        {
+            return _funcionarioRest.GetFuncionariosPorFaixaSalarial(faixa1, faixa2);
         }
 
         //public List<DDD.Funcionario> GetFuncionariosPorCPF()
@@ -53,7 +63,12 @@ namespace Stunnig.API.Models.Strategies
 
         public List<Funcionarios> GetFuncionariosPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return _funcionarioRest.GetFuncionariosPorNome(nome);
+        }
+
+        public List<Funcionarios> GetFuncionariosPorStatus(string status)
+        {
+            return GetFuncionariosPorStatus(status);
         }
 
         //public List<DDD.Funcionario> GetFuncionariosPorStatus()
