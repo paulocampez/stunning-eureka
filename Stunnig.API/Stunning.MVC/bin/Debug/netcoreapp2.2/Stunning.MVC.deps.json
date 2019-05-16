@@ -26,13 +26,22 @@
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
-          "Microsoft.NETCore.App": "2.2.0"
+          "Microsoft.NETCore.App": "2.2.0",
+          "Stunning.Model": "1.0.0"
         },
         "runtime": {
           "Stunning.MVC.dll": {}
         },
         "compile": {
           "Stunning.MVC.dll": {}
+        }
+      },
+      "Stunning.Model/1.0.0": {
+        "runtime": {
+          "Stunning.Model.dll": {}
+        },
+        "compile": {
+          "Stunning.Model.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3233,6 +3242,11 @@
   },
   "libraries": {
     "Stunning.MVC/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Stunning.Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

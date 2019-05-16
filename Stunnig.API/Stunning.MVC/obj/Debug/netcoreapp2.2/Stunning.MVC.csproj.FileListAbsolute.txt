@@ -28,3 +28,5 @@ C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Stunning.MVC.dll
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Stunning.MVC.pdb
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Stunning.MVC.csproj.CopyComplete
+C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\bin\Debug\netcoreapp2.2\Stunning.Model.dll
+C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\bin\Debug\netcoreapp2.2\Stunning.Model.pdb
