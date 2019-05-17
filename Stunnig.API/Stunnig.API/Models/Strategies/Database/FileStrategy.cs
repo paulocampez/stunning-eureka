@@ -90,7 +90,7 @@ namespace Stunnig.API.Models.Strategies.Database
         {
             string editedFuncionarioFile = funcionario.DataCad.ToShortDateString() + ";" + funcionario.Cargo + ";" + funcionario.Cpf + ";" + funcionario.Nome + ";" + funcionario.UfNasc + ";" + funcionario.Salario.ToString().Replace(',', '.') + ";" + funcionario.Status;
             string[] arrLine = File.ReadAllLines(_filePath);
-            arrLine[id - 1] = editedFuncionarioFile;
+            arrLine[id] = editedFuncionarioFile;
             File.WriteAllLines(_filePath, arrLine);
             return true;
         }

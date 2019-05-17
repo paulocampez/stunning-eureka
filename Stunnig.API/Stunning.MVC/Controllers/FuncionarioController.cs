@@ -53,6 +53,16 @@ namespace Stunning.MVC.Controllers
             return View(lstFuncionarios);
         }
 
+
+        public List<Funcionarios> GetFuncionarioPorEstadoQuantitativo()
+        {
+            List<Funcionarios> listaFuncionarios = new List<Funcionarios>();
+
+
+
+            return listaFuncionarios;
+        }
+
         // GET: Funcionario/Details/5
         public ActionResult Details(int id)
         {

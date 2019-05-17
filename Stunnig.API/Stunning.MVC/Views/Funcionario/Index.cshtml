@@ -14,8 +14,9 @@
         <legend>Lista de funcionarios</legend>
 
         <div class="pull-right">
-            <a class="btn btn-default-btn-xs btn-primary"><i class="glyphicon glyphicon-refresh"></i> Atualizar</a>
-            <a class="btn btn-default-btn-xs btn-success"><i class="glyphicon glyphicon-plus"></i> Criar Novo Funcionario</a>
+            <a class="btn btn-default-btn-xs btn-primary" href="@Url.Action("Index","Funcionario")"><i class="glyphicon glyphicon-refresh"></i> Atualizar</a>
+            @*@Html.ActionLink("Criar Funcionario", "Create", "Funcionario", new { @class = "btn btn-default-btn-xs btn-success" })*@
+            <a class="btn btn-default-btn-xs btn-success" href="@Url.Action("Create","Funcionario")"><i class="glyphicon glyphicon-plus"></i> Criar Novo Funcionario</a>
         </div>
         <table class="table table-bordered table-condensed table-hover">
             <thead>
