@@ -17,7 +17,7 @@ namespace Stunnig.API.Models.Strategies.Database
         List<Funcionarios> GetFuncionariosPorCargo(string cargo);
         List<Funcionarios> GetFuncionariosPorData(DateTime dataInicio, DateTime dataFim);
         List<Funcionarios> GetFuncionariosAgrupadosPorUF(string UF);
-        List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2);
+        List<Funcionarios> GetFuncionariosPorFaixaSalarial(double faixa1, double faixa2);
         List<Funcionarios> GetFuncionariosPorStatus(string status);
     }
 }

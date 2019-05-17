@@ -52,7 +52,7 @@
             <param name="Uf"></param>
             <returns></returns>
         </member>
-        <member name="M:Stunnig.API.Controllers.HomeController.GetPorSalario(System.Decimal,System.Decimal)">
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorSalario(System.Double,System.Double)">
             <summary>
             
             </summary>

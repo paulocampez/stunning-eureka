@@ -8,8 +8,10 @@ C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunni
 C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csproj.CoreCompileInputs.cache
 C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.dll
 C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.pdb
-C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csprojAssemblyReference.cache
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\bin\Debug\System.ComponentModel.Annotations.xml
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csproj.CopyComplete
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csprojAssemblyReference.cache
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\bin\Debug\System.ComponentModel.Annotations.xml
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csproj.CopyComplete

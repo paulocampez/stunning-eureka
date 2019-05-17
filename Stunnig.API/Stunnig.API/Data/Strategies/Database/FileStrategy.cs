@@ -17,7 +17,7 @@ namespace Stunnig.API.Models.Strategies.Database
             DateTime dateResult = new DateTime();
             var culture = CultureInfo.CreateSpecificCulture("en-US");
             var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
-            decimal salario = new decimal();
+            double salario = new double();
             var configInformation = new List<string>();
             using (var readerFileConfig = new StreamReader(pathConfigFile))
                 while (readerFileConfig.Peek() >= 0)
@@ -33,7 +33,7 @@ namespace Stunnig.API.Models.Strategies.Database
                 funcionario.Cpf = arrayFuncionario[2].ToString();
                 funcionario.Nome = arrayFuncionario[3].ToString();
                 funcionario.UfNasc = arrayFuncionario[4].ToString();
-                if (decimal.TryParse(arrayFuncionario[5].ToString(), style, culture, out salario))
+                if (double.TryParse(arrayFuncionario[5].ToString(), style, culture, out salario))
                     funcionario.Salario = salario;
                 funcionario.Status = arrayFuncionario[6].ToString();
                 funcionario.IdFuncionario = i;
@@ -64,7 +64,7 @@ namespace Stunnig.API.Models.Strategies.Database
             return GetFuncionariosPorArquivo(_filePath).Where(p => p.Cargo == cargo).ToList();
         }
 
-        public List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2)
+        public List<Funcionarios> GetFuncionariosPorFaixaSalarial(double faixa1, double faixa2)
         {
             var minValue = faixa1 < faixa2 ? faixa1 : faixa2;
             var maxValue = faixa1 > faixa2 ? faixa1 : faixa2;

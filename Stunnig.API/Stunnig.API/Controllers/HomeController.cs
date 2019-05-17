@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Stunnig.API.Models;
 using Stunnig.API.Models.Strategies;
 using Stunnig.API.Models.Strategies.Database;
+using Stunnig.Data;
 using Stunning.Model;
 
 namespace Stunnig.API.Controllers
@@ -16,7 +19,12 @@ namespace Stunnig.API.Controllers
     [ApiController]
     public class HomeController : Controller
     {
-        private readonly ;
+        public readonly StunningContext _context;
+        public HomeController(StunningContext context)
+        {
+            _context = context;
+        }
+
 
         /// <summary>
         /// 
@@ -25,7 +33,8 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public List<Funcionarios> Get()
         {
-            var context = new Context(new FileStrategy());
+
+            var context = new Context(new SQLStrategy(_context));
             return context.GetFuncionarios();
         }
         /// <summary>
@@ -102,7 +111,7 @@ namespace Stunnig.API.Controllers
         /// <param name="salario2"></param>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaSalario/{salario1}/{salario2}")]
-        public List<Funcionarios> GetPorSalario(decimal salario1, decimal salario2)
+        public List<Funcionarios> GetPorSalario(double salario1, double salario2)
         {
             var context = new Context(new FileStrategy());
             return context.GetFuncionariosPorFaixaSalarial(salario1, salario2);

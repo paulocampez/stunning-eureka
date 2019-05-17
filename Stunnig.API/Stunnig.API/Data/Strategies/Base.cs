@@ -46,7 +46,7 @@ namespace Stunnig.API.Models.Strategies
             return _funcionarioRest.GetFuncionariosPorData(dataInicio, dataFim);
         }
 
-        public List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2)
+        public List<Funcionarios> GetFuncionariosPorFaixaSalarial(double faixa1, double faixa2)
         {
             return _funcionarioRest.GetFuncionariosPorFaixaSalarial(faixa1, faixa2);
         }

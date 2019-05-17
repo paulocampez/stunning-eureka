@@ -1,49 +1,50 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\Stunning.MVC.csproj": {}
+    "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\Stunning.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj": {
+    "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj",
+        "projectUniqueName": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj",
         "projectName": "Stunning.Model",
-        "projectPath": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj"
+        "projectPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj"
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\Stunning.MVC.csproj": {
+    "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\Stunning.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\Stunning.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\Stunning.MVC.csproj",
         "projectName": "Stunning.MVC",
-        "projectPath": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\Stunning.MVC.csproj",
-        "packagesPath": "C:\\Users\\paulo.campez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\obj\\",
+        "projectPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\Stunning.MVC.csproj",
+        "packagesPath": "C:\\Users\\PauloCampez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\paulo.campez\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\PauloCampez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nuget.midassolutions.com.br:81/nuget/metaora": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj": {
-                "projectPath": "C:\\Users\\paulo.campez\\source\\repos\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj"
+              "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj": {
+                "projectPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj"
               }
             }
           }

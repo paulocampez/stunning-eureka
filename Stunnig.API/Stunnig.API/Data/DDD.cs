@@ -34,7 +34,7 @@ namespace Stunnig.API.Models
         {
             public void Configure(EntityTypeBuilder<Funcionario> builder)
             {
-                builder.ToTable("Funcionarios", "Empresa");
+                builder.ToTable("Funcionarios");
 
                 //PK da entidade
                 builder.HasKey(p => p.IdFuncionario);
