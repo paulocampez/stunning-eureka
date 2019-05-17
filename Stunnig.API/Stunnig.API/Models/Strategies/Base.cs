@@ -16,20 +16,20 @@ namespace Stunnig.API.Models.Strategies
             _funcionarioRest = iFuncionarioREST;
         }
 
-        //public bool Delete()
-        //{
-        //    return _funcionarioRest.Delete();
-        //}
+        public bool Delete(Funcionarios funcionario)
+        {
+            return _funcionarioRest.Delete(funcionario);
+        }
 
         public List<Funcionarios> GetFuncionarios()
         {
             return _funcionarioRest.GetFuncionarios();
         }
 
-        //public List<DDD.Funcionario> GetFuncionariosAgrupadosPorUF()
-        //{
-        //    return _funcionarioRest.GetFuncionariosAgrupadosPorUF();
-        //}
+        public List<Funcionarios> GetFuncionariosAgrupadosPorUF(string UF)
+        {
+            return _funcionarioRest.GetFuncionariosAgrupadosPorUF(UF);
+        }
 
         public List<Funcionarios> GetFuncionariosPorCargo(string cargo)
         {
@@ -41,25 +41,16 @@ namespace Stunnig.API.Models.Strategies
             return _funcionarioRest.GetFuncionariosPorCPF(cpf);
         }
 
+        public List<Funcionarios> GetFuncionariosPorData(DateTime dataInicio, DateTime dataFim)
+        {
+            return _funcionarioRest.GetFuncionariosPorData(dataInicio, dataFim);
+        }
+
         public List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2)
         {
             return _funcionarioRest.GetFuncionariosPorFaixaSalarial(faixa1, faixa2);
         }
 
-        //public List<DDD.Funcionario> GetFuncionariosPorCPF()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public List<DDD.Funcionario> GetFuncionariosPorData()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public List<DDD.Funcionario> GetFuncionariosPorFaixaSalarial()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public List<Funcionarios> GetFuncionariosPorNome(string nome)
         {
@@ -76,19 +67,9 @@ namespace Stunnig.API.Models.Strategies
             return _funcionarioRest.Post(funcionario);
         }
 
-        //public List<DDD.Funcionario> GetFuncionariosPorStatus()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public bool Insert()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public bool Put()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public bool Put(Funcionarios funcionario)
+        {
+            return _funcionarioRest.Put(funcionario);
+        }
     }
 }

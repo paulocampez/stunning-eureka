@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,8 +18,17 @@ namespace Stunning.MVC.Controllers
         // GET: Funcionario
         public ActionResult Index()
         {
-            List<Funcionarios> listaFuncionarios = new List<Funcionarios>();
+            return View(GetFuncionario());
+        }
 
+        // GET: Funcionario/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        public List<Funcionarios> GetFuncionario()
+        {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
             string url = "http://localhost:59279/api/Home/";
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -30,21 +40,13 @@ namespace Stunning.MVC.Controllers
                 StreamReader sr = new StreamReader(newStream);
                 var result = sr.ReadToEnd();
                 lstFuncionarios = JsonConvert.DeserializeObject<List<Funcionarios>>(result);
-
-                return View(lstFuncionarios.ToList());
+                return lstFuncionarios;
             }
             catch (Exception ex)
             {
                 throw new Exception("erro api");
             }
-            return View(listaFuncionarios);
 
-        }
-
-        // GET: Funcionario/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
         }
 
         // GET: Funcionario/Create
@@ -129,8 +131,46 @@ namespace Stunning.MVC.Controllers
         }
 
         // GET: Funcionario/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string Nome)
         {
+            Funcionarios funcionario = new Funcionarios();
+            funcionario = GetFuncionario().FirstOrDefault(p => p.Nome == Nome);
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://localhost:59279/api/Home");
+
+                    //HTTP DELETE
+                    var request = new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Delete,
+                        RequestUri = new Uri("http://localhost:59279/api/Home"),
+                        Content = new StringContent(JsonConvert.SerializeObject(funcionario), Encoding.UTF8, "application/json")
+                    };
+                    var response = client.SendAsync(request);
+                    response.Wait();
+                    //var postTask = client.DeleteAsync("");/* PostAsJsonAsync<Funcionarios>("Home", funcionario);*/
+                    //postTask.Wait();
+
+                    var result = response.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
+
+                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+
             return View();
         }
 

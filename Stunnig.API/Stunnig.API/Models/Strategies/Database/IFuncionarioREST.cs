@@ -10,13 +10,13 @@ namespace Stunnig.API.Models.Strategies.Database
     {
         List<Funcionarios> GetFuncionarios();
         bool Post(Funcionarios funcionario);
-        //bool Put();
-        //bool Delete();
+        bool Put(Funcionarios funcionario);
+        bool Delete(Funcionarios funcionario);
         List<Funcionarios> GetFuncionariosPorNome(string nome);
         List<Funcionarios> GetFuncionariosPorCPF(string cpf);
         List<Funcionarios> GetFuncionariosPorCargo(string cargo);
-        //List<Funcionario> GetFuncionariosPorData();
-        //List<Funcionario> GetFuncionariosAgrupadosPorUF();
+        List<Funcionarios> GetFuncionariosPorData(DateTime dataInicio, DateTime dataFim);
+        List<Funcionarios> GetFuncionariosAgrupadosPorUF(string UF);
         List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2);
         List<Funcionarios> GetFuncionariosPorStatus(string status);
     }

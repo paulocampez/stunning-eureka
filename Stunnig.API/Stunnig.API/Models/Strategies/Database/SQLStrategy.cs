@@ -7,7 +7,17 @@ namespace Stunnig.API.Models.Strategies.Database
 {
     public class SQLStrategy : IFuncionarioREST
     {
+        public bool Delete(Funcionarios funcionario)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Funcionarios> GetFuncionarios()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Funcionarios> GetFuncionariosAgrupadosPorUF(string UF)
         {
             throw new NotImplementedException();
         }
@@ -18,6 +28,11 @@ namespace Stunnig.API.Models.Strategies.Database
         }
 
         public List<Funcionarios> GetFuncionariosPorCPF(string cpf)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Funcionarios> GetFuncionariosPorData(DateTime dataInicio, DateTime dataFim)
         {
             throw new NotImplementedException();
         }
@@ -38,6 +53,11 @@ namespace Stunnig.API.Models.Strategies.Database
         }
 
         public bool Post(Funcionarios funcionario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Put(Funcionarios funcionario)
         {
             throw new NotImplementedException();
         }

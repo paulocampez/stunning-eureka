@@ -23,5 +23,57 @@
             
             </summary>
         </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorCpf(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="CPF"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorNome(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Nome"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorData(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="dataInicio"></param>
+            <param name="dataFim"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorUF(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Uf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorSalario(System.Decimal,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="salario1"></param>
+            <param name="salario2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorStatus(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.Delete(Stunning.Model.Funcionarios)">
+            <summary>
+            
+            </summary>
+            <param name="funcionarios"></param>
+            <returns></returns>
+            
+        </member>
     </members>
 </doc>

@@ -10,8 +10,7 @@ namespace Stunnig.API.Models.Strategies.Database
 {
     public class FileStrategy : IFuncionarioREST
     {
-        string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-        string path = "\\funcionarios.txt";
+        string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory) + "\\funcionarios.txt";
         public List<Funcionarios> GetFuncionariosPorArquivo(string pathConfigFile)
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
@@ -46,44 +45,72 @@ namespace Stunnig.API.Models.Strategies.Database
         public List<Funcionarios> GetFuncionarios()
         {
 
-            return GetFuncionariosPorArquivo(_filePath += path);
+            return GetFuncionariosPorArquivo(_filePath);
         }
 
         public List<Funcionarios> GetFuncionariosPorNome(string nome)
         {
-            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Nome == nome).ToList();
+            return GetFuncionariosPorArquivo(_filePath).Where(p => p.Nome == nome).ToList();
         }
 
         public List<Funcionarios> GetFuncionariosPorCPF(string cpf)
         {
-            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Cpf == cpf).ToList();
+            return GetFuncionariosPorArquivo(_filePath).Where(p => p.Cpf == cpf).ToList();
         }
 
         public List<Funcionarios> GetFuncionariosPorCargo(string cargo)
         {
-            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Cargo == cargo).ToList();
+            return GetFuncionariosPorArquivo(_filePath).Where(p => p.Cargo == cargo).ToList();
         }
 
         public List<Funcionarios> GetFuncionariosPorFaixaSalarial(decimal faixa1, decimal faixa2)
         {
             var minValue = faixa1 < faixa2 ? faixa1 : faixa2;
             var maxValue = faixa1 > faixa2 ? faixa1 : faixa2;
-            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Salario >= minValue && p.Salario <= maxValue).ToList();
+            return GetFuncionariosPorArquivo(_filePath).Where(p => p.Salario >= minValue && p.Salario <= maxValue).ToList();
         }
 
         public List<Funcionarios> GetFuncionariosPorStatus(string status)
         {
-            return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Status == status).ToList();
+            return GetFuncionariosPorArquivo(_filePath).Where(p => p.Status == status).ToList();
         }
 
         public bool Post(Funcionarios funcionario)
         {
-            using (var writeFileConfig = new StreamWriter(_filePath += path, append: true))
+            using (var writeFileConfig = new StreamWriter(_filePath, append: true))
             {
                 string saveInFile = funcionario.DataCad.ToShortDateString() + ";" + funcionario.Cargo + ";" + funcionario.Cpf + ";" + funcionario.Nome + ";" + funcionario.UfNasc + ";" + funcionario.Salario.ToString().Replace(',','.') + ";" + funcionario.Status;
                 writeFileConfig.WriteLine(saveInFile);
+                return true;
             }
+        }
+
+        public bool Put(Funcionarios funcionario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(Funcionarios funcionario)
+        {
+            string deleteFromFile = funcionario.DataCad.ToShortDateString() + ";" + funcionario.Cargo + ";" + funcionario.Cpf + ";" + funcionario.Nome + ";" + funcionario.UfNasc + ";" + funcionario.Salario.ToString().Replace(',', '.') + ";" + funcionario.Status;
+            var tempFile = Path.GetTempFileName();
+            var linesToKeep = File.ReadLines(_filePath).Where(l => l != deleteFromFile);
+
+            File.WriteAllLines(tempFile, linesToKeep);
+
+            File.Delete(_filePath);
+            File.Move(tempFile, _filePath);
             return true;
+        }
+
+        public List<Funcionarios> GetFuncionariosPorData(DateTime dataInicio, DateTime dataFim)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Funcionarios> GetFuncionariosAgrupadosPorUF(string UF)
+        {
+            throw new NotImplementedException();
         }
     }
 }
