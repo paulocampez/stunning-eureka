@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Stunning.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +74,7 @@ namespace Stunnig.API.Models
                 base.OnModelCreating(modelBuilder);
 
             }
-            public DbSet<Funcionario> Funcionarios { get; set; }
+            public DbSet<Funcionarios> Funcionarios { get; set; }
         }
     }
 }

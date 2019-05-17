@@ -16,6 +16,8 @@ namespace Stunnig.API.Controllers
     [ApiController]
     public class HomeController : Controller
     {
+        private readonly ;
+
         /// <summary>
         /// 
         /// </summary>
