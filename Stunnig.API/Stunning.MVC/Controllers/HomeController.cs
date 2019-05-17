@@ -9,6 +9,10 @@ using Stunning.Model;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Text;
 
 namespace Stunning.MVC.Controllers
 {
@@ -16,7 +20,18 @@ namespace Stunning.MVC.Controllers
     {
         public IActionResult Index()
         {
-            var teste = GetFuncionarios();
+            Funcionarios funcionario = new Funcionarios();
+            funcionario.Cargo = "Dev";
+            funcionario.Status = "ATIVO";
+            funcionario.Cpf = "32696114803";
+            funcionario.DataCad = DateTime.Now;
+            funcionario.Nome = "Paulo";
+            funcionario.IdFuncionario = 2;
+            funcionario.Salario = 3000M;
+            funcionario.UfNasc = "SP";
+
+
+            //var teste = Teste(funcionario);
             return View();
         }
 
@@ -41,6 +56,31 @@ namespace Stunning.MVC.Controllers
                 throw new Exception("erro api");
             }
         }
+
+        //[HttpPost]
+        public IActionResult Teste([FromBody] Funcionarios person)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:59279/api/Home");
+
+                //HTTP POST
+                var postTask = client.PostAsJsonAsync<Funcionarios>("Home", person);
+                postTask.Wait();
+
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+
+           
+            return Json(person);
+        }
+
 
 
         public IActionResult Privacy()

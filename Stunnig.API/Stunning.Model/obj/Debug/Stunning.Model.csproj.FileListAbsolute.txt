@@ -4,3 +4,9 @@ C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\bi
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.dll
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.pdb
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csprojAssemblyReference.cache
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\bin\Debug\Stunning.Model.dll
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\bin\Debug\Stunning.Model.pdb
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csproj.CoreCompileInputs.cache
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.dll
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.pdb
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csprojAssemblyReference.cache

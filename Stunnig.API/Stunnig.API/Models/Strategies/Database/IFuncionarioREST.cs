@@ -9,7 +9,7 @@ namespace Stunnig.API.Models.Strategies.Database
     public interface IFuncionarioREST
     {
         List<Funcionarios> GetFuncionarios();
-        //bool Insert();
+        bool Post(Funcionarios funcionario);
         //bool Put();
         //bool Delete();
         List<Funcionarios> GetFuncionariosPorNome(string nome);

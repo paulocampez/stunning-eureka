@@ -5,8 +5,10 @@
     </assembly>
     <members>
         <member name="M:Stunnig.API.Controllers.HomeController.Get">
-            <returns>Objeto contendo valores para uma temperatura
-            nas escalas Fahrenheit, Celsius e Kelvin.</returns>
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Stunnig.API.Controllers.HomeController.Get(System.String)">
             <summary>
@@ -14,6 +16,12 @@
             </summary>
             <param name="cargo"></param>
             <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.Post(Stunning.Model.Funcionarios)">
+            <summary>
+            
+            
+            </summary>
         </member>
     </members>
 </doc>

@@ -36,5 +36,10 @@ namespace Stunnig.API.Models.Strategies.Database
         {
             throw new NotImplementedException();
         }
+
+        public bool Post(Funcionarios funcionario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

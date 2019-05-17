@@ -75,5 +75,15 @@ namespace Stunnig.API.Models.Strategies.Database
         {
             return GetFuncionariosPorArquivo(_filePath += path).Where(p => p.Status == status).ToList();
         }
+
+        public bool Post(Funcionarios funcionario)
+        {
+            using (var writeFileConfig = new StreamWriter(_filePath += path, append: true))
+            {
+                string saveInFile = funcionario.DataCad.ToShortDateString() + ";" + funcionario.Cargo + ";" + funcionario.Cpf + ";" + funcionario.Nome + ";" + funcionario.UfNasc + ";" + funcionario.Salario.ToString().Replace(',','.') + ";" + funcionario.Status;
+                writeFileConfig.WriteLine(saveInFile);
+            }
+            return true;
+        }
     }
 }

@@ -68,7 +68,12 @@ namespace Stunnig.API.Models.Strategies
 
         public List<Funcionarios> GetFuncionariosPorStatus(string status)
         {
-            return GetFuncionariosPorStatus(status);
+            return _funcionarioRest.GetFuncionariosPorStatus(status);
+        }
+
+        public bool Post(Funcionarios funcionario)
+        {
+            return _funcionarioRest.Post(funcionario);
         }
 
         //public List<DDD.Funcionario> GetFuncionariosPorStatus()

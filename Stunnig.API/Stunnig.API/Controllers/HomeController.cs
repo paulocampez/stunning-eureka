@@ -38,5 +38,26 @@ namespace Stunnig.API.Controllers
             return context.GetFuncionariosPorCargo(cargo);
         }
 
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        public void Post([FromBody] Funcionarios funcionarios)
+        {
+            var context = new Context(new FileStrategy());
+            context.Post(funcionarios);
+        }
+
+
+
+
+        //[Microsoft.AspNetCore.Mvc.HttpGet("Post/{nome}")]
+        //public void Post([FromBody] string nome)
+        //{
+        //    Funcionarios funcionario = new Funcionarios();
+        //    var context = new Context(new FileStrategy());
+        //    context.Post(funcionario);
+        //}
     }
 }

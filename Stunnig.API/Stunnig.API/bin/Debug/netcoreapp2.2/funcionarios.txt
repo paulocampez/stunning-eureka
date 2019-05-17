@@ -1,4 +1,4 @@
-DataCad;Cargo;Cpf;Nome;UfNasc;Salario;Status
+﻿DataCad;Cargo;Cpf;Nome;UfNasc;Salario;Status
 15/04/2017;Dev Jr;85235708709;Aaron Aaberg;AP;8965.30;ATIVO
 19/04/2017;AC Sr;59984408701;Aaron Aaby;RO;5312.70;ATIVO
 03/04/2017;Analista Sr;51704568080;Abbey Aadland;RJ;5448.60;ATIVO
@@ -499,3 +499,4 @@ DataCad;Cargo;Cpf;Nome;UfNasc;Salario;Status
 29/04/2017;Analista Jr;24966260884;Beth Agbisit;PB;1948.10;ATIVO
 17/04/2017;PO Jr;70586832637;Bethanie Agcaoili;CE;1054.90;ATIVO
 03/04/2017;AC Sr;95267437336;Bethann Age;RR;2098.50;ATIVO
+16/02/1991;FullStack;32696114803;Campez;SP;1400000.0;ATIVO
