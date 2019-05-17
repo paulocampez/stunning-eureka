@@ -120,7 +120,52 @@ namespace Stunning.MVC.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                DateTime dateCad = new DateTime();
+                decimal salario = new decimal();
+                Funcionarios funcionario = new Funcionarios();
+                funcionario.Cargo = collection["Cargo"].ToString();
+                funcionario.Status = collection["Status"].ToString();
+                funcionario.Cpf = collection["Cpf"].ToString();
+                if (DateTime.TryParse(collection["DataCad"].ToString(), out dateCad))
+                    funcionario.DataCad = dateCad;
+                else
+                    funcionario.DataCad = DateTime.MinValue;
+
+                funcionario.Nome = collection["Nome"].ToString();
+                funcionario.IdFuncionario = int.Parse(collection["IdFuncionario"]);
+                if (decimal.TryParse(collection["Salario"].ToString(), out salario))
+                    funcionario.Salario = salario;
+                else
+                    funcionario.Salario = salario;
+                funcionario.UfNasc = collection["UfNasc"].ToString();
+
+                try
+                {
+                    using (var client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri("http://localhost:59279/api/Home/" + id);
+
+                        //HTTP POST
+                        var postTask = client.PutAsJsonAsync<Funcionarios>("Home", funcionario);
+                        postTask.Wait();
+
+                        var result = postTask.Result;
+                        if (result.IsSuccessStatusCode)
+                        {
+                            return RedirectToAction("Index");
+                        }
+                    }
+
+                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+
+
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return View();
+                }
+
 
                 return RedirectToAction(nameof(Index));
             }
@@ -151,8 +196,6 @@ namespace Stunning.MVC.Controllers
                     };
                     var response = client.SendAsync(request);
                     response.Wait();
-                    //var postTask = client.DeleteAsync("");/* PostAsJsonAsync<Funcionarios>("Home", funcionario);*/
-                    //postTask.Wait();
 
                     var result = response.Result;
                     if (result.IsSuccessStatusCode)

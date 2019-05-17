@@ -128,5 +128,18 @@ namespace Stunnig.API.Controllers
             var context = new Context(new FileStrategy());
             context.Delete(funcionarios);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// 
+        [Microsoft.AspNetCore.Mvc.HttpPut("{id}")]
+        public void Put(int id, [FromBody] Funcionarios funcionarios)
+        {
+            var teste = id;
+            var context = new Context(new FileStrategy());
+            context.Put(funcionarios);
+        }
     }
 }

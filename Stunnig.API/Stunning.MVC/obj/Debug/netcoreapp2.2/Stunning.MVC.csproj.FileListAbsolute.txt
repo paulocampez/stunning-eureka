@@ -68,3 +68,4 @@ C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunni
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\Create.g.cshtml.cs
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\Edit.g.cshtml.cs
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\Index.g.cshtml.cs
+C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\_PartialFiltros.g.cshtml.cs

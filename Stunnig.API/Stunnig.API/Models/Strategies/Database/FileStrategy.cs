@@ -36,6 +36,7 @@ namespace Stunnig.API.Models.Strategies.Database
                 if (decimal.TryParse(arrayFuncionario[5].ToString(), style, culture, out salario))
                     funcionario.Salario = salario;
                 funcionario.Status = arrayFuncionario[6].ToString();
+                funcionario.IdFuncionario = i;
 
                 lstFuncionarios.Add(funcionario);
             }

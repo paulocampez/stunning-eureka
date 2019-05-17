@@ -3,22 +3,19 @@
 @{
     ViewData["Title"] = "List";
 }
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 
 <h1>List</h1>
+
+@Html.Partial("_PartialFiltros.cshtml")
+
 <div class=col-md-12>
 
     <form id="form-list-client">
-        <legend>List of clients</legend>
+        <legend>Lista de funcionarios</legend>
 
         <div class="pull-right">
-            <a class="btn btn-default-btn-xs btn-primary"><i class="glyphicon glyphicon-refresh"></i> Refresh</a>
-            <a class="btn btn-default-btn-xs btn-success"><i class="glyphicon glyphicon-plus"></i> New</a>
+            <a class="btn btn-default-btn-xs btn-primary"><i class="glyphicon glyphicon-refresh"></i> Atualizar</a>
+            <a class="btn btn-default-btn-xs btn-success"><i class="glyphicon glyphicon-plus"></i> Criar Novo Funcionario</a>
         </div>
         <table class="table table-bordered table-condensed table-hover">
             <thead>
@@ -50,40 +47,39 @@
             </thead>
             <tbody id="form-list-client-body">
                 @foreach (var item in Model)
-                        {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cpf)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataCad)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cargo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UfNasc)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Salario)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        <a title="view this user" class="btn btn-default btn-sm " href="@Url.Action("Edit", "Funcionario", new { id = 1})"> <i class="glyphicon glyphicon-eye-open text-primary"></i> </a>
-                        <a title="edit this user" class="btn btn-default btn-sm " href="@Url.Action("Edit", "Funcionario", new { id = 1})"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>
-                        <a title="delete this user" class="btn btn-default btn-sm " href="@Url.Action("Edit", "Funcionario", new { id = 1})"> <i class="glyphicon glyphicon-trash text-danger"></i> </a>
-                    </td>
-                </tr>
-                            }
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cpf)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataCad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cargo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UfNasc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Salario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", "Funcionario", new { Nome = item.Nome }) |
+                            @Html.ActionLink("Deletar", "Delete", "Funcionario", new { Nome = item.Nome }) |
+                            @Html.ActionLink("Visualizar", "Details", "Funcionario", new { Nome = item.Nome }) 
+                            @*<a title="edit this user" class="btn btn-default btn-sm " href="@Url.Action("Edit", "Funcionario", new { Nome = item.Nome})"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>*@
+                            @*<a title="delete this user" class="btn btn-default btn-sm " href="@Url.Action("Edit", "Funcionario", new { Nome = item.Nome})"> <i class="glyphicon glyphicon-trash text-danger"></i> </a>*@
+                        </td>
+                    </tr>
+                }
             </tbody>
-
         </table>
     </form>
-
-
 </div>
