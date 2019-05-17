@@ -132,6 +132,7 @@ namespace Stunnig.API.Controllers
         /// 
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="funcionarios"></param>
         /// <returns></returns>
         /// 
         [Microsoft.AspNetCore.Mvc.HttpPut("{id}")]
@@ -139,7 +140,7 @@ namespace Stunnig.API.Controllers
         {
             var teste = id;
             var context = new Context(new FileStrategy());
-            context.Put(funcionarios);
+            context.Put(funcionarios, id);
         }
     }
 }

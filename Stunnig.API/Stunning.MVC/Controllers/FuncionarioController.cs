@@ -110,7 +110,9 @@ namespace Stunning.MVC.Controllers
         // GET: Funcionario/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Funcionarios funcionarios = new Funcionarios();
+            funcionarios = GetFuncionario().Where(p => p.IdFuncionario == id).FirstOrDefault();
+            return View(funcionarios);
         }
 
         // POST: Funcionario/Edit/5
@@ -143,10 +145,10 @@ namespace Stunning.MVC.Controllers
                 {
                     using (var client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://localhost:59279/api/Home/" + id);
+                        client.BaseAddress = new Uri("http://localhost:59279/api/" + id);
 
                         //HTTP POST
-                        var postTask = client.PutAsJsonAsync<Funcionarios>("Home", funcionario);
+                        var postTask = client.PutAsJsonAsync<Funcionarios>("Home/"+id, funcionario);
                         postTask.Wait();
 
                         var result = postTask.Result;

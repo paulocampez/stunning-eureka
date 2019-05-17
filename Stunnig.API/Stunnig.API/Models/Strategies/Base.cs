@@ -67,9 +67,9 @@ namespace Stunnig.API.Models.Strategies
             return _funcionarioRest.Post(funcionario);
         }
 
-        public bool Put(Funcionarios funcionario)
+        public bool Put(Funcionarios funcionario, int id)
         {
-            return _funcionarioRest.Put(funcionario);
+            return _funcionarioRest.Put(funcionario,id);
         }
     }
 }

@@ -57,7 +57,7 @@ namespace Stunnig.API.Models.Strategies.Database
             throw new NotImplementedException();
         }
 
-        public bool Put(Funcionarios funcionario)
+        public bool Put(Funcionarios funcionario, int id)
         {
             throw new NotImplementedException();
         }

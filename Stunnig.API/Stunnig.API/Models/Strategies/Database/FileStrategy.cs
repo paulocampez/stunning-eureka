@@ -86,9 +86,23 @@ namespace Stunnig.API.Models.Strategies.Database
             }
         }
 
-        public bool Put(Funcionarios funcionario)
+        public bool Put(Funcionarios funcionario, int id)
         {
-            throw new NotImplementedException();
+            string editedFuncionarioFile = funcionario.DataCad.ToShortDateString() + ";" + funcionario.Cargo + ";" + funcionario.Cpf + ";" + funcionario.Nome + ";" + funcionario.UfNasc + ";" + funcionario.Salario.ToString().Replace(',', '.') + ";" + funcionario.Status;
+            var tempFile = Path.GetTempFileName();
+
+
+            string[] arrLine = File.ReadAllLines(_filePath);
+            arrLine[id - 1] = editedFuncionarioFile;
+            File.WriteAllLines(_filePath, arrLine);
+
+            //var lineEdited = File.ReadLines(_filePath).Where(l => l != deleteFromFile);
+
+            //File.WriteAllLines(tempFile, linesToKeep);
+
+            //File.Delete(_filePath);
+            //File.Move(tempFile, _filePath);
+            return true;
         }
 
         public bool Delete(Funcionarios funcionario)
