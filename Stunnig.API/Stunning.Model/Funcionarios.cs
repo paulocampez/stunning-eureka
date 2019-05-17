@@ -1,6 +1,7 @@
 ﻿using Stunning.Model.Enum;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,4 +19,5 @@ namespace Stunning.Model
         public decimal? Salario { get; set; }
         public string Status { get; set; }
     }
+
 }

@@ -16,9 +16,41 @@ namespace Stunning.MVC.Controllers
     public class FuncionarioController : Controller
     {
         // GET: Funcionario
-        public ActionResult Index()
+        public ActionResult Index(string Nome, string Cargo,
+                                  string CPF, string UF, string Status,
+                                  DateTime? DataInicio, DateTime? DataFim, string SalarioInicio, string SalarioFim)
         {
-            return View(GetFuncionario());
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+            lstFuncionarios = GetFuncionario();
+            decimal salIni = new decimal();
+            decimal salFim = new decimal();
+            //TODO: Search na BLL
+            if (!string.IsNullOrEmpty(Nome))
+                lstFuncionarios = lstFuncionarios.Where(p => p.Nome.Contains(Nome)).ToList();
+
+            if (!string.IsNullOrEmpty(Cargo))
+                lstFuncionarios = lstFuncionarios.Where(p => p.Cargo.Contains(Cargo)).ToList();
+
+            if (!string.IsNullOrEmpty(CPF))
+                lstFuncionarios = lstFuncionarios.Where(p => p.Cpf.Contains(CPF)).ToList();
+
+            if (!string.IsNullOrEmpty(UF))
+                lstFuncionarios = lstFuncionarios.Where(p => p.UfNasc.Contains(UF)).ToList();
+
+            if (!string.IsNullOrEmpty(Status))
+                lstFuncionarios = lstFuncionarios.Where(p => p.Status.Contains(Status)).ToList();
+
+            if (DataFim != null && DataInicio != null)
+            {
+                lstFuncionarios = lstFuncionarios.Where(p => p.DataCad >= DataInicio && p.DataCad <= DataFim).ToList();
+            }
+            if (!string.IsNullOrEmpty(SalarioInicio) && !string.IsNullOrEmpty(SalarioFim))
+            {
+                if (decimal.TryParse(SalarioInicio.Replace(".", ","), out salIni) && decimal.TryParse(SalarioFim.Replace(".", ","), out salFim))
+                    lstFuncionarios = lstFuncionarios.Where(p => p.Salario >= salIni && p.Salario <= salFim).ToList();
+            }
+
+            return View(lstFuncionarios);
         }
 
         // GET: Funcionario/Details/5
@@ -73,7 +105,7 @@ namespace Stunning.MVC.Controllers
 
             funcionario.Nome = collection["Nome"].ToString();
             funcionario.IdFuncionario = int.Parse(collection["IdFuncionario"]);
-            if (decimal.TryParse(collection["Salario"].ToString(), out salario))
+            if (decimal.TryParse(collection["Salario"].ToString().Replace(".", ","), out salario))
                 funcionario.Salario = salario;
             else
                 funcionario.Salario = salario;
@@ -135,7 +167,7 @@ namespace Stunning.MVC.Controllers
 
                 funcionario.Nome = collection["Nome"].ToString();
                 funcionario.IdFuncionario = int.Parse(collection["IdFuncionario"]);
-                if (decimal.TryParse(collection["Salario"].ToString(), out salario))
+                if (decimal.TryParse(collection["Salario"].ToString().Replace(".",","), out salario))
                     funcionario.Salario = salario;
                 else
                     funcionario.Salario = salario;
@@ -148,7 +180,7 @@ namespace Stunning.MVC.Controllers
                         client.BaseAddress = new Uri("http://localhost:59279/api/" + id);
 
                         //HTTP POST
-                        var postTask = client.PutAsJsonAsync<Funcionarios>("Home/"+id, funcionario);
+                        var postTask = client.PutAsJsonAsync<Funcionarios>("Home/" + id, funcionario);
                         postTask.Wait();
 
                         var result = postTask.Result;

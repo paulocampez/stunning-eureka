@@ -4,7 +4,7 @@
     ViewData["Title"] = "List";
 }
 
-<h1>List</h1>
+<h1>Funcionarios</h1>
 
 @Html.Partial("_PartialFiltros.cshtml")
 
@@ -71,11 +71,9 @@
                             @Html.DisplayFor(modelItem => item.Status)
                         </td>
                         <td>
-                            @Html.ActionLink("Editar", "Edit", "Funcionario", new { Nome = item.Nome }) |
-                            @Html.ActionLink("Deletar", "Delete", "Funcionario", new { Nome = item.Nome }) |
-                            @Html.ActionLink("Visualizar", "Details", "Funcionario", new { Nome = item.Nome }) 
-                            @*<a title="edit this user" class="btn btn-default btn-sm " href="@Url.Action("Edit", "Funcionario", new { Nome = item.Nome})"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>*@
-                            @*<a title="delete this user" class="btn btn-default btn-sm " href="@Url.Action("Edit", "Funcionario", new { Nome = item.Nome})"> <i class="glyphicon glyphicon-trash text-danger"></i> </a>*@
+                            @Html.ActionLink("Editar", "Edit", "Funcionario", new { id = item.IdFuncionario }) |
+                            @Html.ActionLink("Deletar", "Delete", "Funcionario", new { id = item.IdFuncionario }) |
+                            @Html.ActionLink("Visualizar", "Details", "Funcionario", new { id = item.IdFuncionario }) 
                         </td>
                     </tr>
                 }

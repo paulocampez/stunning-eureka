@@ -1,4 +1,4 @@
-DataCad;Cargo;Cpf;Nome;UfNasc;Salario;Status
+17/05/2019;string;string;string;string;0;string
 03/04/2017;Analista Sr;51704568080;Abbey Aadland;RJ;5448.60;ATIVO
 19/04/2017;PO Jr;32439637882;Abbie Aagaard;PR;3655.10;BLOQUEADO
 03/04/2017;PO Pl;06994375986;Abby Aakre;MA;7027.30;ATIVO
@@ -494,3 +494,4 @@ DataCad;Cargo;Cpf;Nome;UfNasc;Salario;Status
 25/04/2017;PO Jr;42504126522;Bess Agarwal;PA;703.80;ATIVO
 05/04/2017;PO Pl;92137590107;Bessie Agbayani;DF;4099.90;ATIVO
 17/04/2017;PO Jr;70586832637;Bethanie Agcaoili;CE;1054.90;ATIVO
+12/02/2022;Analista Sr;51704568080;Paulo;RJ;544860.0;ATIVO
