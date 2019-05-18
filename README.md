@@ -11,3 +11,9 @@ Veja aqui alguns exemplos:
 ``` http://localhost:59279/index.html ```
 
 ![ASPNETCOREWebAPIVersions](./github/swagger.png)
+
+## Projeto Strategy
+
+Padrão de Projeto Strategy, criado uma Strategy para cada variante e fazer com que o método delegue o algoritmo para uma instância de Strategy
+
+![ASPNETCOREWebAPIVersions](./github/Strategy.png)
