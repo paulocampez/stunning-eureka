@@ -10,7 +10,7 @@ using Stunnig.Data;
 namespace Stunnig.API.Migrations
 {
     [DbContext(typeof(StunningContext))]
-    [Migration("20190517224612_firstMigration")]
+    [Migration("20190517235707_firstMigration")]
     partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace Stunnig.API.Migrations
 
                     b.Property<string>("Nome");
 
-                    b.Property<decimal?>("Salario");
+                    b.Property<double>("Salario");
 
                     b.Property<string>("Status");
 

@@ -30,9 +30,10 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group ">
-                                        <select id="arac-turu" class="form-control">
-                                            <option selected>Trazer UF Quantitativo</option>
-                                            <option>SP(15)</option>
+                                        <select name="UF" id="UF"
+                                                class="form-control"
+                                                asp-items="@(new SelectList(@ViewBag.UfNasc,"Select Gender"))">
+                                            <option value="">Selecione UF</option>
                                         </select>
                                     </div>
                                 </div>

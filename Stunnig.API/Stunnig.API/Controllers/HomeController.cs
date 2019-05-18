@@ -20,11 +20,12 @@ namespace Stunnig.API.Controllers
     public class HomeController : Controller
     {
         public readonly StunningContext _context;
+
+        
         public HomeController(StunningContext context)
         {
             _context = context;
         }
-
 
         /// <summary>
         /// 
@@ -56,7 +57,7 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpPost]
         public void Post([FromBody] Funcionarios funcionarios)
         {
-            var context = new Context(new FileStrategy());
+            var context = new Context(new SQLStrategy(_context));
             context.Post(funcionarios);
         }
         /// <summary>
@@ -67,7 +68,7 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaCPF/{CPF}")]
         public List<Funcionarios> GetPorCpf(string CPF)
         {
-            var context = new Context(new FileStrategy());
+            var context = new Context(new SQLStrategy(_context));
             return context.GetFuncionariosPorCPF(CPF);
         }
         /// <summary>
@@ -90,7 +91,7 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaData/{dataInicio}/{dataFim}")]
         public List<Funcionarios> GetPorData(DateTime dataInicio, DateTime dataFim)
         {
-            var context = new Context(new FileStrategy());
+            var context = new Context(new SQLStrategy(_context));
             return context.GetFuncionariosPorData(dataInicio,dataFim);
         }
         /// <summary>
@@ -101,7 +102,7 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaUF/{Uf}")]
         public List<Funcionarios> GetPorUF(string Uf)
         {
-            var context = new Context(new FileStrategy());
+            var context = new Context(new SQLStrategy(_context));
             return context.GetFuncionariosAgrupadosPorUF(Uf);
         }
         /// <summary>
@@ -113,7 +114,7 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaSalario/{salario1}/{salario2}")]
         public List<Funcionarios> GetPorSalario(double salario1, double salario2)
         {
-            var context = new Context(new FileStrategy());
+            var context = new Context(new SQLStrategy(_context));
             return context.GetFuncionariosPorFaixaSalarial(salario1, salario2);
         }
         /// <summary>
@@ -136,7 +137,9 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpDelete]
         public void Delete([FromBody] Funcionarios funcionarios)
         {
-            var context = new Context(new FileStrategy());
+
+            //var context = new Context(new FileStrategy());
+            var context = new SQLStrategy(_context);
             context.Delete(funcionarios);
         }
         /// <summary>
@@ -149,8 +152,7 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpPut("{id}")]
         public void Put(int id, [FromBody] Funcionarios funcionarios)
         {
-            var teste = id;
-            var context = new Context(new FileStrategy());
+            var context = new Context(new SQLStrategy(_context));
             context.Put(funcionarios, id);
         }
     }

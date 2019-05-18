@@ -33,7 +33,7 @@ namespace Stunnig.API.Migrations
 
                     b.Property<string>("Nome");
 
-                    b.Property<decimal?>("Salario");
+                    b.Property<double>("Salario");
 
                     b.Property<string>("Status");
 

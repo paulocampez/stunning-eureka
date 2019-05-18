@@ -20,10 +20,14 @@ namespace Stunning.MVC.Controllers
                                   string CPF, string UF, string Status,
                                   DateTime? DataInicio, DateTime? DataFim, string SalarioInicio, string SalarioFim)
         {
+
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
             lstFuncionarios = GetFuncionario();
-            decimal salIni = new decimal();
-            decimal salFim = new decimal();
+            List<string> lstUf = new List<string>();
+            lstFuncionarios.Select(p => p.UfNasc).Distinct().ToList().ForEach(p=> lstUf.Add(p));
+            ViewBag.UfNasc = lstUf;
+            double salIni = new double();
+            double salFim = new double();
             //TODO: Search na BLL
             if (!string.IsNullOrEmpty(Nome))
                 lstFuncionarios = lstFuncionarios.Where(p => p.Nome.Contains(Nome)).ToList();
@@ -46,7 +50,7 @@ namespace Stunning.MVC.Controllers
             }
             if (!string.IsNullOrEmpty(SalarioInicio) && !string.IsNullOrEmpty(SalarioFim))
             {
-                if (decimal.TryParse(SalarioInicio.Replace(".", ","), out salIni) && decimal.TryParse(SalarioFim.Replace(".", ","), out salFim))
+                if (double.TryParse(SalarioInicio.Replace(".", ","), out salIni) && double.TryParse(SalarioFim.Replace(".", ","), out salFim))
                     lstFuncionarios = lstFuncionarios.Where(p => p.Salario >= salIni && p.Salario <= salFim).ToList();
             }
 
@@ -94,6 +98,8 @@ namespace Stunning.MVC.Controllers
         // GET: Funcionario/Create
         public ActionResult Create()
         {
+            var lstUf = GetFuncionario().Select(p => p.UfNasc).Distinct().ToList();
+            ViewBag.UfNasc = lstUf;
             return View();
         }
 
@@ -103,7 +109,7 @@ namespace Stunning.MVC.Controllers
         public ActionResult Create(IFormCollection collection)
         {
             DateTime dateCad = new DateTime();
-            decimal salario = new decimal();
+            double salario = new double();
             Funcionarios funcionario = new Funcionarios();
             funcionario.Cargo = collection["Cargo"].ToString();
             funcionario.Status = collection["Status"].ToString();
@@ -114,8 +120,7 @@ namespace Stunning.MVC.Controllers
                 funcionario.DataCad = DateTime.MinValue;
 
             funcionario.Nome = collection["Nome"].ToString();
-            funcionario.IdFuncionario = int.Parse(collection["IdFuncionario"]);
-            if (decimal.TryParse(collection["Salario"].ToString().Replace(".", ","), out salario))
+            if (double.TryParse(collection["Salario"].ToString().Replace(".", ","), out salario))
                 funcionario.Salario = salario;
             else
                 funcionario.Salario = salario;
@@ -165,7 +170,7 @@ namespace Stunning.MVC.Controllers
             try
             {
                 DateTime dateCad = new DateTime();
-                decimal salario = new decimal();
+                double salario = new double();
                 Funcionarios funcionario = new Funcionarios();
                 funcionario.Cargo = collection["Cargo"].ToString();
                 funcionario.Status = collection["Status"].ToString();
@@ -177,7 +182,7 @@ namespace Stunning.MVC.Controllers
 
                 funcionario.Nome = collection["Nome"].ToString();
                 funcionario.IdFuncionario = int.Parse(collection["IdFuncionario"]);
-                if (decimal.TryParse(collection["Salario"].ToString().Replace(".",","), out salario))
+                if (double.TryParse(collection["Salario"].ToString().Replace(".", ","), out salario))
                     funcionario.Salario = salario;
                 else
                     funcionario.Salario = salario;
@@ -220,10 +225,10 @@ namespace Stunning.MVC.Controllers
         }
 
         // GET: Funcionario/Delete/5
-        public ActionResult Delete(string Nome)
+        public ActionResult Delete(int id)
         {
             Funcionarios funcionario = new Funcionarios();
-            funcionario = GetFuncionario().FirstOrDefault(p => p.Nome == Nome);
+            funcionario = GetFuncionario().FirstOrDefault(p => p.IdFuncionario == id);
 
             try
             {
@@ -258,7 +263,6 @@ namespace Stunning.MVC.Controllers
                 return View();
             }
 
-            return View();
         }
 
         // POST: Funcionario/Delete/5

@@ -19,7 +19,7 @@ namespace Stunnig.API.Migrations
                     DataCad = table.Column<DateTime>(nullable: false),
                     Cargo = table.Column<string>(nullable: true),
                     UfNasc = table.Column<string>(nullable: true),
-                    Salario = table.Column<decimal>(nullable: true),
+                    Salario = table.Column<double>(nullable: false),
                     Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
