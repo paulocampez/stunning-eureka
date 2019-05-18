@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stunning.MVC", "Stunning.MV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stunning.Model", "Stunning.Model\Stunning.Model.csproj", "{8F15A04B-60F0-401C-B158-E8B719F7DFB8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stunning.Tests", "Stunning.Tests\Stunning.Tests.csproj", "{4B74AB8D-266C-4FEA-9B2A-16536300C459}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stunning.Testes", "Stunning.Testes\Stunning.Testes.csproj", "{8FC82CD9-4C40-49FA-BA5D-F17D1A25D3F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{8F15A04B-60F0-401C-B158-E8B719F7DFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F15A04B-60F0-401C-B158-E8B719F7DFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F15A04B-60F0-401C-B158-E8B719F7DFB8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B74AB8D-266C-4FEA-9B2A-16536300C459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B74AB8D-266C-4FEA-9B2A-16536300C459}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B74AB8D-266C-4FEA-9B2A-16536300C459}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B74AB8D-266C-4FEA-9B2A-16536300C459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FC82CD9-4C40-49FA-BA5D-F17D1A25D3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FC82CD9-4C40-49FA-BA5D-F17D1A25D3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FC82CD9-4C40-49FA-BA5D-F17D1A25D3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FC82CD9-4C40-49FA-BA5D-F17D1A25D3F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Stunnig.API</name>
+    </assembly>
+    <members>
+        <member name="M:Stunnig.API.Controllers.HomeController.Get">
+            <summary>
+            Retorna Todos os Funcionarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.Get(System.String)">
+            <summary>
+            Retorna Funcionarios Filtrados Por Cargo
+            </summary>
+            <param name="cargo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.Post(Stunning.Model.Funcionarios)">
+            <summary>
+            Insere Funcionario 
+            <param name="funcionarios"></param>
+            </summary>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.Put(System.Int32,Stunning.Model.Funcionarios)">
+            <summary>
+            Edita Funcionario
+            </summary>
+            <param name="id"></param>
+            <param name="funcionarios"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.Delete(Stunning.Model.Funcionarios)">
+            <summary>
+            Deleta Funcionario
+            </summary>
+            <param name="funcionarios"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.Delete(System.String)">
+            <summary>
+            Deleta Funcionario por CPF
+            </summary>
+            <param name="cpf"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorCpf(System.String)">
+            <summary>
+            Retorna Funcionarios Filtrados Por CPF
+            </summary>
+            <param name="CPF"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorNome(System.String)">
+            <summary>
+            Retorna Funcionarios Filtrados Por Nome
+            </summary>
+            <param name="Nome"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorData(System.DateTime,System.DateTime)">
+            <summary>
+            Retorna Funcionarios por Range de Data
+            </summary>
+            <param name="dataInicio"></param>
+            <param name="dataFim"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorUF(System.String)">
+            <summary>
+            Retorna Funcionarios por UF
+            </summary>
+            <param name="Uf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorSalario(System.Double,System.Double)">
+            <summary>
+            Retorna Funcionarios por Range de Salario
+            </summary>
+            <param name="salario1"></param>
+            <param name="salario2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stunnig.API.Controllers.HomeController.GetPorStatus(System.String)">
+            <summary>
+            Retorna Funcionarios por Status
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

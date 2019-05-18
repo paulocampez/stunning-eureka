@@ -19,7 +19,7 @@ namespace Stunnig.API.Controllers
     [ApiController]
     public class HomeController : Controller
     {
-        public readonly StunningContext _context;
+        public StunningContext _context;
 
 
         public HomeController(StunningContext context)
