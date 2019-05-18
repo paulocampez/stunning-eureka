@@ -53,8 +53,8 @@ Install-Package Swashbuckle.AspNetCore -Version 4.0.1
 ![ASPNETCOREWebAPIVersions](./github/projeto-mvc2.png)
 
 ## Como Testar
--Para testar a aplicação MVC é necessário rodar o WebAPI para realizar as consultas.
--Update Database (Entity Framework)
+- Para testar a aplicação MVC é necessário rodar o WebAPI para realizar as consultas.
+- Update Database (Entity Framework)
 ``` 
 update-database
 ```
