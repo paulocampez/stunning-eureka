@@ -40,5 +40,17 @@ Install-Package Newtonsoft.Json -Version 12.0.2
 Install-Package Swashbuckle.AspNetCore -Version 4.0.1
 ```
 
+## Projeto MVC
 
+![ASPNETCOREWebAPIVersions](./github/padraomvc.png)
 
+- Tela de consulta com filtros
+```https://localhost:44376/Funcionario```
+![ASPNETCOREWebAPIVersions](./github/projeto-mvc1.png)
+
+- Tela de consulta com filtro direto no API
+```https://localhost:44376/Funcionario/BuscaNome```
+![ASPNETCOREWebAPIVersions](./github/projeto-mvc2.png)
+
+## Como Testar
+Para testar a aplicação MVC é necessário rodar o WebAPI para realizar as consultas.
