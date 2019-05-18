@@ -21,6 +21,11 @@ namespace Stunnig.API.Models.Strategies
             return _funcionarioRest.Delete(funcionario);
         }
 
+        public bool DeletePorCpf(string cpf)
+        {
+            return _funcionarioRest.DeletePorCpf(cpf);
+        }
+
         public List<Funcionarios> GetFuncionarios()
         {
             return _funcionarioRest.GetFuncionarios();

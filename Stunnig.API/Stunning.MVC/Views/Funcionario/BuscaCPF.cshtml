@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Stunning.Model.Funcionarios>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Funcionarios</h1>
+
+<div class="search-funcionario text-white py-3" id="search-funcionario">
+    <div class="container">
+        <form asp-controller="Funcionario" asp-action="BuscaCargo">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card acik-renk-form">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group ">
+                                        <div class="form-group ">
+                                            <input type="text" class="form-control" placeholder="CPF" id="CPF" name="CPF">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="submit" class="btn btn-warning  pl-5 pr-5" value="Buscar" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@Html.Partial("_GridFuncionarios.cshtml", Model)

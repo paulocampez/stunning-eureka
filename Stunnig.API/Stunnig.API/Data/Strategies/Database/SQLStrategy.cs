@@ -27,13 +27,6 @@ namespace Stunnig.API.Models.Strategies.Database
         const string cmdGetByDateRange = "SELECT* from Funcionarios where (DataCad BETWEEN ':DataInicio' AND ':DataFim')";
 
         const string cmdGetBySalarioRange = "SELECT* from Funcionarios where (Salario BETWEEN ':Faixa1' AND ':Faixa2')";
-        class FuncionarioDTO
-        {
-            public int Id;
-
-            public string CustomerName;
-        }
-
 
         private readonly StunningContext _context;
 
@@ -47,8 +40,8 @@ namespace Stunnig.API.Models.Strategies.Database
         }
         public bool Delete(Funcionarios funcionario)
         {
-            Funcionarios customerModel = _context.Funcionarios.Find(funcionario.IdFuncionario);
-            _context.Funcionarios.Remove(customerModel);
+            Funcionarios funcionarios = _context.Funcionarios.Find(funcionario.IdFuncionario);
+            _context.Funcionarios.Remove(funcionarios);
             _context.SaveChanges();
             return true;
         }
@@ -101,58 +94,26 @@ namespace Stunnig.API.Models.Strategies.Database
 
         }
 
+        public bool DeletePorCpf(string cpf)
+        {
+            List<Funcionarios> funcionarios = _context.Funcionarios.Where(p => p.Cpf == cpf).ToList();
+
+            foreach (var funcionario in funcionarios)
+                _context.Funcionarios.Remove(funcionario);
+
+            _context.SaveChanges();
+
+            return true;
+        }
+
         public List<Funcionarios> GetFuncionariosAgrupadosPorUF(string UF)
         {
-
-
-
-            return new List<Funcionarios>();
+            return _context.Funcionarios.Where(p => p.UfNasc == UF).ToList();
         }
 
         public List<Funcionarios> GetFuncionariosPorCargo(string cargo)
         {
-            List<Funcionarios> listaFuncionairos = new List<Funcionarios>();
-            var conn = _context.Database.GetDbConnection();
-            try
-            {
-                double doubFunc;
-                conn.Open();
-                using (var command = conn.CreateCommand())
-                {
-
-
-                    command.CommandText = cmdGetAllByCargo.Replace(":Cargo", cargo);
-                    DbDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            double.TryParse(reader["Salario"].ToString(), out doubFunc);
-                            var row = new Funcionarios
-                            {
-                                IdFuncionario = int.Parse(reader["IdFuncionario"].ToString()),
-                                Cargo = reader["Cargo"].ToString(),
-                                Cpf = reader["Cpf"].ToString(),
-                                Nome = reader["Nome"].ToString(),
-                                DataCad = DateTime.Parse(reader["DataCad"].ToString()),
-                                Salario = doubFunc,
-                                Status = reader["Status"].ToString(),
-                                UfNasc = reader["UfNasc"].ToString()
-                            };
-
-                            listaFuncionairos.Add(row);
-                        }
-                    }
-                    reader.Dispose();
-                }
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return listaFuncionairos;
+            return _context.Funcionarios.Where(p => p.Cargo == cargo).ToList();
         }
 
         public List<Funcionarios> GetFuncionariosPorCPF(string cpf)
@@ -167,7 +128,7 @@ namespace Stunnig.API.Models.Strategies.Database
 
         public List<Funcionarios> GetFuncionariosPorFaixaSalarial(double faixa1, double faixa2)
         {
-           return _context.Funcionarios.Where(p => p.Salario >= faixa1 && p.Salario <= faixa2).ToList();
+            return _context.Funcionarios.Where(p => p.Salario >= faixa1 && p.Salario <= faixa2).ToList();
         }
 
         public List<Funcionarios> GetFuncionariosPorNome(string nome)

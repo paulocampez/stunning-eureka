@@ -1,0 +1,170 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Tests\\Stunning.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunnig.API\\Stunnig.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunnig.API\\Stunnig.API.csproj",
+        "projectName": "Stunnig.API",
+        "projectPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunnig.API\\Stunnig.API.csproj",
+        "packagesPath": "C:\\Users\\PauloCampez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunnig.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PauloCampez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj": {
+                "projectPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.Extensions.PlatformAbstractions": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj",
+        "projectName": "Stunning.Model",
+        "projectPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Model\\Stunning.Model.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Tests\\Stunning.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Tests\\Stunning.Tests.csproj",
+        "projectName": "Stunning.Tests",
+        "projectPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Tests\\Stunning.Tests.csproj",
+        "packagesPath": "C:\\Users\\PauloCampez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunning.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PauloCampez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunnig.API\\Stunnig.API.csproj": {
+                "projectPath": "C:\\Users\\PauloCampez\\source\\repos\\PauloCampez\\stunning-eureka\\Stunnig.API\\Stunnig.API\\Stunnig.API.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

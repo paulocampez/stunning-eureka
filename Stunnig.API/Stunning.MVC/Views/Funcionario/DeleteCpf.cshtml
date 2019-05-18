@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Stunning.Model.Funcionarios>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Funcionarios</h1>
+
+@Html.Partial("_PartialFiltros.cshtml")
+
+@Html.Partial("_GridFuncionarios.cshtml", Model)

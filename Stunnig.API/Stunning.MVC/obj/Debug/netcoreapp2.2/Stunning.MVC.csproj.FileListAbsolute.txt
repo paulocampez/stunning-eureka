@@ -70,3 +70,12 @@ C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\Index.g.cshtml.cs
 C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\_PartialFiltros.g.cshtml.cs
 C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\_PartialFiltros.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\BuscaNome.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\BuscaCPF.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\BuscaCargo.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\BuscaRangeData.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\BuscaUF.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\BuscaRangeSalarial.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\BuscaStatus.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\DeleteCpf.g.cshtml.cs
+C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.MVC\obj\Debug\netcoreapp2.2\Razor\Views\Funcionario\_GridFuncionarios.g.cshtml.cs

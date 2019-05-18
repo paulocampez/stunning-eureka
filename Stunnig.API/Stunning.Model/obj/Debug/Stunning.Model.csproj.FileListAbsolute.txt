@@ -15,4 +15,3 @@ C:\Users\paulo.campez\source\repos\stunning-eureka\Stunnig.API\Stunning.Model\ob
 C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\bin\Debug\System.ComponentModel.Annotations.xml
 C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csproj.CopyComplete
-C:\Users\PauloCampez\source\repos\PauloCampez\stunning-eureka\Stunnig.API\Stunning.Model\obj\Debug\Stunning.Model.csprojAssemblyReference.cache

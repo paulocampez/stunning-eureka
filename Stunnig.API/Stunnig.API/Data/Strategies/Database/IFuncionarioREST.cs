@@ -12,6 +12,7 @@ namespace Stunnig.API.Models.Strategies.Database
         bool Post(Funcionarios funcionario);
         bool Put(Funcionarios funcionario, int id);
         bool Delete(Funcionarios funcionario);
+        bool DeletePorCpf(string cpf);
         List<Funcionarios> GetFuncionariosPorNome(string nome);
         List<Funcionarios> GetFuncionariosPorCPF(string cpf);
         List<Funcionarios> GetFuncionariosPorCargo(string cargo);

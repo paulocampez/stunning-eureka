@@ -117,5 +117,10 @@ namespace Stunnig.API.Models.Strategies.Database
         {
             throw new NotImplementedException();
         }
+
+        public bool DeletePorCpf(string cpf)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

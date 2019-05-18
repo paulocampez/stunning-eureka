@@ -4,4 +4,18 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>Projeto de teste para LuizaLabs. Acessar o menu de @Html.ActionLink("Funcionarios","Index","Funcionario") para interagir</p>
+<p>Projeto de teste para LuizaLabs. Acessar o menu de @Html.ActionLink("Funcionarios", "Index", "Funcionario") para interagir</p>
+
+
+
+
+<h1>Consumindo os servicos criados:</h1>
+<p>@Html.ActionLink("a. Serviço que localiza/retorna funcionários por Nome", "BuscaNome", "Funcionario")</p>
+<p>@Html.ActionLink("b. Serviço que localiza/retorna funcionários por CPF", "BuscaCPF", "Funcionario")</p>
+<p>@Html.ActionLink("c. Serviço que localiza/retorna funcionários por Cargo", "BuscaCargo", "Funcionario")</p>
+<p>@Html.ActionLink("d. Serviço que localiza/retorna funcionários por Data de Cadastros", "BuscaRangeData", "Funcionario")</p>
+<p>@Html.ActionLink("e. Serviço que retorna funcionários agrupados por UF de Nascimento, de forma quantitativa", "BuscaUF", "Funcionario")</p>
+<p>@Html.ActionLink("f. Serviço que localiza/retorna funcionários por faixa salarial", "BuscaRangeSalarial", "Funcionario")</p>
+<p>@Html.ActionLink("g. Serviço que localiza/retorna funcionários por status", "BuscaStatus", "Funcionario")</p>
+<p>@Html.ActionLink("h. Serviço para incluir um novo funcionário (caso o funcionário já exista, apenas atualizar)", "Create", "Funcionario")</p>
+<p>@Html.ActionLink("i. Serviço para excluir um funcionário pelo número do CPF", "DeleteCpf", "Funcionario")</p>
