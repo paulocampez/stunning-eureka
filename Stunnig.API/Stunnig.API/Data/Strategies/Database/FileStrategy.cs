@@ -80,7 +80,7 @@ namespace Stunnig.API.Models.Strategies.Database
         {
             using (var writeFileConfig = new StreamWriter(_filePath, append: true))
             {
-                string saveInFile = funcionario.DataCad.ToShortDateString() + ";" + funcionario.Cargo + ";" + funcionario.Cpf + ";" + funcionario.Nome + ";" + funcionario.UfNasc + ";" + funcionario.Salario.ToString().Replace(',','.') + ";" + funcionario.Status;
+                string saveInFile = funcionario.DataCad.ToShortDateString() + ";" + funcionario.Cargo + ";" + funcionario.Cpf + ";" + funcionario.Nome + ";" + funcionario.UfNasc + ";" + funcionario.Salario.ToString().Replace(',', '.') + ";" + funcionario.Status;
                 writeFileConfig.WriteLine(saveInFile);
                 return true;
             }
@@ -110,17 +110,24 @@ namespace Stunnig.API.Models.Strategies.Database
 
         public List<Funcionarios> GetFuncionariosPorData(DateTime dataInicio, DateTime dataFim)
         {
-            throw new NotImplementedException();
+            return GetFuncionariosPorArquivo(_filePath).Where(c => c.DataCad >= dataInicio && c.DataCad <= dataFim).ToList();
         }
 
         public List<Funcionarios> GetFuncionariosAgrupadosPorUF(string UF)
         {
-            throw new NotImplementedException();
+            return GetFuncionariosPorArquivo(_filePath).Where(p => p.UfNasc == UF).ToList();
         }
 
         public bool DeletePorCpf(string cpf)
         {
-            throw new NotImplementedException();
+            var lstFuncionarios = GetFuncionariosPorArquivo(_filePath).Where(c => c.Cpf == cpf).ToList();
+
+            foreach(var funcionario in lstFuncionarios)
+            {
+                Delete(funcionario);
+            }
+
+            return true;
         }
     }
 }

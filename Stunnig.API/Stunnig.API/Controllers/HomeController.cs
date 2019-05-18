@@ -96,7 +96,6 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpDelete("{cpf}")]
         public void Delete(string cpf)
         {
-
             //var context = new Context(new FileStrategy());
             var context = new SQLStrategy(_context);
             context.DeletePorCpf(cpf);
