@@ -221,14 +221,18 @@ namespace Stunnig.API.Models.Strategies.Database
 
         public bool Post(Funcionarios funcionario)
         {
-            _context.Funcionarios.Add(funcionario);
+            if (_context.Funcionarios.Any(p => p == funcionario))
+                _context.Entry(funcionario).State = EntityState.Modified;
+            else
+                _context.Funcionarios.Add(funcionario);
+
             _context.SaveChanges();
             return true;
         }
 
         public bool Put(Funcionarios funcionario, int id)
         {
-            _context.Entry(funcionario).State = EntityState.Modified;
+
             _context.SaveChanges();
             return true;
         }

@@ -67,13 +67,10 @@ namespace Stunning.MVC.Controllers
 
             return listaFuncionarios;
         }
-
-        // GET: Funcionario/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
-
         public List<Funcionarios> GetFuncionario()
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
@@ -95,16 +92,12 @@ namespace Stunning.MVC.Controllers
             }
 
         }
-
-        // GET: Funcionario/Create
         public ActionResult Create()
         {
             var lstUf = GetFuncionario().Select(p => p.UfNasc).Distinct().ToList();
             ViewBag.UfNasc = lstUf;
             return View();
         }
-
-        // POST: Funcionario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -154,16 +147,12 @@ namespace Stunning.MVC.Controllers
                 return View();
             }
         }
-
-        // GET: Funcionario/Edit/5
         public ActionResult Edit(int id)
         {
             Funcionarios funcionarios = new Funcionarios();
             funcionarios = GetFuncionario().Where(p => p.IdFuncionario == id).FirstOrDefault();
             return View(funcionarios);
         }
-
-        // POST: Funcionario/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -224,8 +213,6 @@ namespace Stunning.MVC.Controllers
                 return View();
             }
         }
-
-        // GET: Funcionario/Delete/5
         public ActionResult Delete(int id)
         {
             Funcionarios funcionario = new Funcionarios();
@@ -265,8 +252,6 @@ namespace Stunning.MVC.Controllers
             }
 
         }
-
-        // POST: Funcionario/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
@@ -282,7 +267,6 @@ namespace Stunning.MVC.Controllers
                 return View();
             }
         }
-
         public ActionResult BuscaNome(string Nome)
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
@@ -295,7 +279,6 @@ namespace Stunning.MVC.Controllers
 
             return View(lstFuncionarios);
         }
-
         public List<Funcionarios> GetByUrl(string url)
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
@@ -388,7 +371,6 @@ namespace Stunning.MVC.Controllers
 
             return View(lstFuncionarios);
         }
-
         public ActionResult DeleteCpf(string cpf)
         {
             Funcionarios funcionario = new Funcionarios();
@@ -427,6 +409,5 @@ namespace Stunning.MVC.Controllers
 
             return View();
         }
-
     }
 }
