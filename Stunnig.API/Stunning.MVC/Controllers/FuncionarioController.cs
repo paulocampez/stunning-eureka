@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -343,9 +344,9 @@ namespace Stunning.MVC.Controllers
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
 
-            if (DataInicio != null && DataFim != null)
+            if (DataInicio.HasValue && DataFim.HasValue)
             {
-                string url = "http://localhost:59279/api/Home/BuscaData/" + DataInicio + "/" + DataFim;
+                string url = "http://localhost:59279/api/Home/BuscaData/" + DataInicio.Value.ToString("yyyy-MM-dd") + "/" + DataFim.Value.ToString("yyyy-MM-dd");
                 lstFuncionarios = GetByUrl(url);
             }
 
@@ -393,8 +394,6 @@ namespace Stunning.MVC.Controllers
             Funcionarios funcionario = new Funcionarios();
             if (!string.IsNullOrEmpty(cpf))
             {
-                funcionario = GetFuncionario().FirstOrDefault(p => p.Cpf == cpf);
-
                 try
                 {
                     using (var client = new HttpClient())
@@ -405,8 +404,7 @@ namespace Stunning.MVC.Controllers
                         var request = new HttpRequestMessage
                         {
                             Method = HttpMethod.Delete,
-                            RequestUri = new Uri("http://localhost:59279/api/Home"),
-                            Content = new StringContent(JsonConvert.SerializeObject(funcionario), Encoding.UTF8, "application/json")
+                            RequestUri = new Uri("http://localhost:59279/api/Home/" + cpf),
                         };
                         var response = client.SendAsync(request);
                         response.Wait();
@@ -417,10 +415,7 @@ namespace Stunning.MVC.Controllers
                             return RedirectToAction("Index");
                         }
                     }
-
                     ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-
-
                     return RedirectToAction(nameof(Index));
                 }
                 catch

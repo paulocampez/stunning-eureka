@@ -120,7 +120,7 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaNome/{Nome}")]
         public List<Funcionarios> GetPorNome(string Nome)
         {
-            var context = new Context(new FileStrategy());
+            var context = new Context(new SQLStrategy(_context));
             return context.GetFuncionariosPorNome(Nome);
         }
         /// <summary>
@@ -166,7 +166,7 @@ namespace Stunnig.API.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaStatus/{status}")]
         public List<Funcionarios> GetPorStatus(string status)
         {
-            var context = new Context(new FileStrategy());
+            var context = new Context(new SQLStrategy(_context));
             return context.GetFuncionariosPorStatus(status);
         }
 

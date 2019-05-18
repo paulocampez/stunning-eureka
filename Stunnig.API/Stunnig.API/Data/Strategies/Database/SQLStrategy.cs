@@ -15,14 +15,14 @@ namespace Stunnig.API.Models.Strategies.Database
                         + "FROM Funcionarios ";
 
         const string cmdGetAllByCargo = "SELECT * "
-                       + "FROM Funcionarios WHERE Cargo = :Cargo";
+                       + "FROM Funcionarios WHERE Cargo = ':Cargo'";
         const string cmdGetAllByNome = "SELECT * "
-                 + "FROM Funcionarios WHERE Nome = :Nome";
+                 + "FROM Funcionarios WHERE Nome = ':Nome'";
         const string cmdGetAllByCpf = "SELECT * "
-               + "FROM Funcionarios WHERE Cpf = :Cpf";
+               + "FROM Funcionarios WHERE Cpf = ':Cpf'";
 
         const string cmdGetAllByStatus = "SELECT * "
-                 + "FROM Funcionarios WHERE Status = :Status";
+                 + "FROM Funcionarios WHERE Status = ':Status'";
 
         const string cmdGetByDateRange = "SELECT* from Funcionarios where (DataCad BETWEEN ':DataInicio' AND ':DataFim')";
 
@@ -141,8 +141,6 @@ namespace Stunnig.API.Models.Strategies.Database
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
-
-                    //TODO: Fazer ler AAAA-mm-DD
                     command.CommandText = cmdGetAllByNome.Replace(":Nome", nome);
                     DbDataReader reader = command.ExecuteReader();
 

@@ -8,7 +8,7 @@
 
 <div class="search-funcionario text-white py-3" id="search-funcionario">
     <div class="container">
-        <form asp-controller="Funcionario" asp-action="BuscaCargo">
+        <form asp-controller="Funcionario" asp-action="BuscaRangeSalarial">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card acik-renk-form">
@@ -43,3 +43,11 @@
 </div>
 
 @Html.Partial("_GridFuncionarios.cshtml", Model)
+
+<script type="text/javascript">
+
+    $(document).ready(function ($) {
+        $('.money').mask("###0,00", { reverse: true });
+    })
+
+</script>
