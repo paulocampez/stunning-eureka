@@ -32,11 +32,18 @@ namespace Stunnig.API.Controllers
         /// </summary>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet]
-        public List<Funcionarios> Get()
+        public ActionResult<List<Funcionarios>> Get()
         {
 
             var context = new Context(new SQLStrategy(_context));
-            return context.GetFuncionarios();
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+
+            lstFuncionarios = context.GetFuncionarios();
+
+            if (lstFuncionarios.Count == 0)
+                return NotFound();
+
+            return lstFuncionarios;
         }
         /// <summary>
         /// Retorna Funcionarios Filtrados Por Cargo
@@ -44,10 +51,17 @@ namespace Stunnig.API.Controllers
         /// <param name="cargo"></param>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaCargo/{cargo}")]
-        public List<Funcionarios> Get(string cargo)
+        public ActionResult<List<Funcionarios>> Get(string cargo)
         {
             var context = new Context(new SQLStrategy(_context));
-            return context.GetFuncionariosPorCargo(cargo);
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+
+            lstFuncionarios = context.GetFuncionariosPorCargo(cargo);
+
+            if (lstFuncionarios.Count == 0)
+                return NotFound();
+
+            return lstFuncionarios;
         }
 
         /// <summary>
@@ -55,10 +69,12 @@ namespace Stunnig.API.Controllers
         /// <param name="funcionarios"></param>
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPost]
-        public void Post([FromBody] Funcionarios funcionarios)
+        public ActionResult<bool> Post([FromBody] Funcionarios funcionarios)
         {
             var context = new Context(new SQLStrategy(_context));
-            context.Post(funcionarios);
+            var success = context.Post(funcionarios);
+
+            return success;
         }
         /// <summary>
         /// Edita Funcionario
@@ -68,10 +84,11 @@ namespace Stunnig.API.Controllers
         /// <returns></returns>
         /// 
         [Microsoft.AspNetCore.Mvc.HttpPut("{id}")]
-        public void Put(int id, [FromBody] Funcionarios funcionarios)
+        public ActionResult<bool> Put(int id, [FromBody] Funcionarios funcionarios)
         {
             var context = new Context(new SQLStrategy(_context));
-            context.Put(funcionarios, id);
+            var success = context.Put(funcionarios, id);
+            return success;
         }
         /// <summary>
         /// Deleta Funcionario
@@ -106,10 +123,15 @@ namespace Stunnig.API.Controllers
         /// <param name="CPF"></param>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaCPF/{CPF}")]
-        public List<Funcionarios> GetPorCpf(string CPF)
+        public ActionResult<List<Funcionarios>> GetPorCpf(string CPF)
         {
             var context = new Context(new SQLStrategy(_context));
-            return context.GetFuncionariosPorCPF(CPF);
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+            lstFuncionarios = context.GetFuncionariosPorCPF(CPF);
+            if (lstFuncionarios.Count == 0)
+                return NotFound();
+
+            return lstFuncionarios;
         }
         /// <summary>
         /// Retorna Funcionarios Filtrados Por Nome
@@ -117,10 +139,15 @@ namespace Stunnig.API.Controllers
         /// <param name="Nome"></param>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaNome/{Nome}")]
-        public List<Funcionarios> GetPorNome(string Nome)
+        public ActionResult<List<Funcionarios>> GetPorNome(string Nome)
         {
             var context = new Context(new SQLStrategy(_context));
-            return context.GetFuncionariosPorNome(Nome);
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+            lstFuncionarios = context.GetFuncionariosPorNome(Nome);
+            if (lstFuncionarios.Count == 0)
+                return NotFound();
+
+            return lstFuncionarios;
         }
         /// <summary>
         /// Retorna Funcionarios por Range de Data
@@ -129,10 +156,16 @@ namespace Stunnig.API.Controllers
         /// <param name="dataFim"></param>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaData/{dataInicio}/{dataFim}")]
-        public List<Funcionarios> GetPorData(DateTime dataInicio, DateTime dataFim)
+        public ActionResult<List<Funcionarios>> GetPorData(DateTime dataInicio, DateTime dataFim)
         {
             var context = new Context(new SQLStrategy(_context));
-            return context.GetFuncionariosPorData(dataInicio, dataFim);
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+            lstFuncionarios = context.GetFuncionariosPorData(dataInicio, dataFim);
+
+            if (lstFuncionarios.Count == 0)
+                return NotFound();
+
+            return lstFuncionarios;
         }
         /// <summary>
         /// Retorna Funcionarios por UF
@@ -140,10 +173,15 @@ namespace Stunnig.API.Controllers
         /// <param name="Uf"></param>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaUF/{Uf}")]
-        public List<Funcionarios> GetPorUF(string Uf)
+        public ActionResult<List<Funcionarios>> GetPorUF(string Uf)
         {
             var context = new Context(new SQLStrategy(_context));
-            return context.GetFuncionariosAgrupadosPorUF(Uf);
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+            lstFuncionarios = context.GetFuncionariosAgrupadosPorUF(Uf);
+            if (lstFuncionarios.Count == 0)
+                return NotFound();
+
+            return lstFuncionarios;
         }
         /// <summary>
         /// Retorna Funcionarios por Range de Salario
@@ -152,10 +190,16 @@ namespace Stunnig.API.Controllers
         /// <param name="salario2"></param>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaSalario/{salario1}/{salario2}")]
-        public List<Funcionarios> GetPorSalario(double salario1, double salario2)
+        public ActionResult<List<Funcionarios>> GetPorSalario(double salario1, double salario2)
         {
             var context = new Context(new SQLStrategy(_context));
-            return context.GetFuncionariosPorFaixaSalarial(salario1, salario2);
+
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+            lstFuncionarios = context.GetFuncionariosPorFaixaSalarial(salario1, salario2);
+            if (lstFuncionarios.Count == 0)
+                return NotFound();
+
+            return lstFuncionarios;
         }
         /// <summary>
         /// Retorna Funcionarios por Status
@@ -163,10 +207,16 @@ namespace Stunnig.API.Controllers
         /// <param name="status"></param>
         /// <returns></returns>
         [Microsoft.AspNetCore.Mvc.HttpGet("BuscaStatus/{status}")]
-        public List<Funcionarios> GetPorStatus(string status)
+        public ActionResult<List<Funcionarios>> GetPorStatus(string status)
         {
             var context = new Context(new SQLStrategy(_context));
-            return context.GetFuncionariosPorStatus(status);
+            List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
+            lstFuncionarios = context.GetFuncionariosPorStatus(status);
+
+            if (lstFuncionarios.Count == 0)
+                return NotFound();
+
+            return lstFuncionarios;
         }
 
 

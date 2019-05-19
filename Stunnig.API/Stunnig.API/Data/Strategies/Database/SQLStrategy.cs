@@ -50,47 +50,48 @@ namespace Stunnig.API.Models.Strategies.Database
         {
 
             List<Funcionarios> listaFuncionairos = new List<Funcionarios>();
-            var conn = _context.Database.GetDbConnection();
-            try
-            {
-                double doubFunc;
-                conn.Open();
-                using (var command = conn.CreateCommand())
-                {
+            return _context.Funcionarios.ToList();
+            //var conn = _context.Database.GetDbConnection();
+            //try
+            //{
+            //    double doubFunc;
+            //    conn.Open();
+            //    using (var command = conn.CreateCommand())
+            //    {
 
 
-                    command.CommandText = cmdGetAll;
-                    DbDataReader reader = command.ExecuteReader();
+            //        command.CommandText = cmdGetAll;
+            //        DbDataReader reader = command.ExecuteReader();
 
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            double.TryParse(reader["Salario"].ToString(), out doubFunc);
-                            var row = new Funcionarios
-                            {
-                                IdFuncionario = int.Parse(reader["IdFuncionario"].ToString()),
-                                Cargo = reader["Cargo"].ToString(),
-                                Cpf = reader["Cpf"].ToString(),
-                                Nome = reader["Nome"].ToString(),
-                                DataCad = DateTime.Parse(reader["DataCad"].ToString()),
-                                Salario = doubFunc,
-                                Status = reader["Status"].ToString(),
-                                UfNasc = reader["UfNasc"].ToString()
-                            };
+            //        if (reader.HasRows)
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                double.TryParse(reader["Salario"].ToString(), out doubFunc);
+            //                var row = new Funcionarios
+            //                {
+            //                    IdFuncionario = int.Parse(reader["IdFuncionario"].ToString()),
+            //                    Cargo = reader["Cargo"].ToString(),
+            //                    Cpf = reader["Cpf"].ToString(),
+            //                    Nome = reader["Nome"].ToString(),
+            //                    DataCad = DateTime.Parse(reader["DataCad"].ToString()),
+            //                    Salario = doubFunc,
+            //                    Status = reader["Status"].ToString(),
+            //                    UfNasc = reader["UfNasc"].ToString()
+            //                };
 
-                            listaFuncionairos.Add(row);
-                        }
-                    }
-                    reader.Dispose();
-                }
-            }
-            finally
-            {
-                conn.Close();
-            }
+            //                listaFuncionairos.Add(row);
+            //            }
+            //        }
+            //        reader.Dispose();
+            //    }
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
 
-            return listaFuncionairos;
+            //return listaFuncionairos;
 
         }
 
@@ -133,108 +134,132 @@ namespace Stunnig.API.Models.Strategies.Database
 
         public List<Funcionarios> GetFuncionariosPorNome(string nome)
         {
-            List<Funcionarios> listaFuncionairos = new List<Funcionarios>();
-            var conn = _context.Database.GetDbConnection();
-            try
-            {
-                double doubFunc;
-                conn.Open();
-                using (var command = conn.CreateCommand())
-                {
-                    command.CommandText = cmdGetAllByNome.Replace(":Nome", nome);
-                    DbDataReader reader = command.ExecuteReader();
+            return _context.Funcionarios.Where(p => p.Nome == nome).ToList();
+            //List<Funcionarios> listaFuncionairos = new List<Funcionarios>();
+            //var conn = _context.Database.GetDbConnection();
+            //try
+            //{
+            //    double doubFunc;
+            //    conn.Open();
+            //    using (var command = conn.CreateCommand())
+            //    {
+            //        command.CommandText = cmdGetAllByNome.Replace(":Nome", nome);
+            //        DbDataReader reader = command.ExecuteReader();
 
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            double.TryParse(reader["Salario"].ToString(), out doubFunc);
-                            var row = new Funcionarios
-                            {
-                                IdFuncionario = int.Parse(reader["IdFuncionario"].ToString()),
-                                Cargo = reader["Cargo"].ToString(),
-                                Cpf = reader["Cpf"].ToString(),
-                                Nome = reader["Nome"].ToString(),
-                                DataCad = DateTime.Parse(reader["DataCad"].ToString()),
-                                Salario = doubFunc,
-                                Status = reader["Status"].ToString(),
-                                UfNasc = reader["UfNasc"].ToString()
-                            };
+            //        if (reader.HasRows)
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                double.TryParse(reader["Salario"].ToString(), out doubFunc);
+            //                var row = new Funcionarios
+            //                {
+            //                    IdFuncionario = int.Parse(reader["IdFuncionario"].ToString()),
+            //                    Cargo = reader["Cargo"].ToString(),
+            //                    Cpf = reader["Cpf"].ToString(),
+            //                    Nome = reader["Nome"].ToString(),
+            //                    DataCad = DateTime.Parse(reader["DataCad"].ToString()),
+            //                    Salario = doubFunc,
+            //                    Status = reader["Status"].ToString(),
+            //                    UfNasc = reader["UfNasc"].ToString()
+            //                };
 
-                            listaFuncionairos.Add(row);
-                        }
-                    }
-                    reader.Dispose();
-                }
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return listaFuncionairos;
+            //                listaFuncionairos.Add(row);
+            //            }
+            //        }
+            //        reader.Dispose();
+            //    }
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
+            //return listaFuncionairos;
         }
 
         public List<Funcionarios> GetFuncionariosPorStatus(string status)
         {
-            List<Funcionarios> listaFuncionairos = new List<Funcionarios>();
-            var conn = _context.Database.GetDbConnection();
-            try
-            {
-                double doubFunc;
-                conn.Open();
-                using (var command = conn.CreateCommand())
-                {
+            return _context.Funcionarios.Where(p => p.Status == status).ToList();
+            //List<Funcionarios> listaFuncionairos = new List<Funcionarios>();
+            //var conn = _context.Database.GetDbConnection();
+            //try
+            //{
+            //    double doubFunc;
+            //    conn.Open();
+            //    using (var command = conn.CreateCommand())
+            //    {
 
-                    //TODO: Fazer ler AAAA-mm-DD
-                    command.CommandText = cmdGetAllByStatus.Replace(":Status", status);
-                    DbDataReader reader = command.ExecuteReader();
+            //        //TODO: Fazer ler AAAA-mm-DD
+            //        command.CommandText = cmdGetAllByStatus.Replace(":Status", status);
+            //        DbDataReader reader = command.ExecuteReader();
 
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            double.TryParse(reader["Salario"].ToString(), out doubFunc);
-                            var row = new Funcionarios
-                            {
-                                IdFuncionario = int.Parse(reader["IdFuncionario"].ToString()),
-                                Cargo = reader["Cargo"].ToString(),
-                                Cpf = reader["Cpf"].ToString(),
-                                Nome = reader["Nome"].ToString(),
-                                DataCad = DateTime.Parse(reader["DataCad"].ToString()),
-                                Salario = doubFunc,
-                                Status = reader["Status"].ToString(),
-                                UfNasc = reader["UfNasc"].ToString()
-                            };
+            //        if (reader.HasRows)
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                double.TryParse(reader["Salario"].ToString(), out doubFunc);
+            //                var row = new Funcionarios
+            //                {
+            //                    IdFuncionario = int.Parse(reader["IdFuncionario"].ToString()),
+            //                    Cargo = reader["Cargo"].ToString(),
+            //                    Cpf = reader["Cpf"].ToString(),
+            //                    Nome = reader["Nome"].ToString(),
+            //                    DataCad = DateTime.Parse(reader["DataCad"].ToString()),
+            //                    Salario = doubFunc,
+            //                    Status = reader["Status"].ToString(),
+            //                    UfNasc = reader["UfNasc"].ToString()
+            //                };
 
-                            listaFuncionairos.Add(row);
-                        }
-                    }
-                    reader.Dispose();
-                }
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return listaFuncionairos;
+            //                listaFuncionairos.Add(row);
+            //            }
+            //        }
+            //        reader.Dispose();
+            //    }
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
+            //return listaFuncionairos;
         }
 
         public bool Post(Funcionarios funcionario)
         {
-            if (_context.Funcionarios.Any(p => p == funcionario))
-                _context.Entry(funcionario).State = EntityState.Modified;
-            else
-                _context.Funcionarios.Add(funcionario);
+            try
+            {
+                if (_context.Funcionarios.Any(p => p == funcionario))
+                    _context.Entry(funcionario).State = EntityState.Modified;
+                else
+                    _context.Funcionarios.Add(funcionario);
 
-            _context.SaveChanges();
-            return true;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
 
         public bool Put(Funcionarios funcionario, int id)
         {
-
-            _context.SaveChanges();
-            return true;
+            try
+            {
+                var local = _context.Set<Funcionarios>()
+                .Local
+                .FirstOrDefault(entry => entry.IdFuncionario.Equals(id));
+                if (!(local == null))
+                {
+                    _context.Entry(local).State = EntityState.Detached;
+                }
+                _context.Entry(funcionario).State = EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
