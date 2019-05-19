@@ -302,11 +302,6 @@ namespace Tests
             using (var context = new StunningContext(options))
             {
                 HomeController homeController = new HomeController(context);
-                var responseFuncionario = homeController.GetPorStatus("ATIVO");
-
-                Assert.IsNotNull(responseFuncionario);
-                Assert.IsNotNull(responseFuncionario.Value);
-                Assert.IsNotNull(responseFuncionario.Value.Count > 0);
 
                 var funcionario = new Funcionarios { DataCad = DateTime.Parse("02/04/2017"), Cargo = "AC Pl", Cpf = "68557675240", Nome = "Adolph Abajian", UfNasc = "MS", Salario = 3429.10, Status = "ATIVO" };
 
@@ -314,27 +309,6 @@ namespace Tests
                 Assert.AreEqual(success.Value, true);
 
 
-            }
-        }
-        [Test]
-        public void ValidarSaveIncorreto()
-        {
-            var options = new DbContextOptionsBuilder<StunningContext>()
-    .UseInMemoryDatabase(databaseName: "TesteFuncionario")
-    .Options;
-            using (var context = new StunningContext(options))
-            {
-                HomeController homeController = new HomeController(context);
-                var responseFuncionario = homeController.GetPorStatus("ATIVO");
-
-                Assert.IsNotNull(responseFuncionario);
-                Assert.IsNotNull(responseFuncionario.Value);
-                Assert.IsNotNull(responseFuncionario.Value.Count > 0);
-
-                var funcionario = new Funcionarios {IdFuncionario = 1, DataCad = DateTime.Parse("02/04/2017"), Cargo = "AC Pl", Cpf = "68557675240", Nome = "Adolph Abajian", UfNasc = "MS", Salario = 3429.10, Status = "ATIVO" };
-
-                var success = homeController.Post(funcionario);
-                Assert.AreEqual(success.Value, false);
             }
         }
 
@@ -347,12 +321,6 @@ namespace Tests
             using (var context = new StunningContext(options))
             {
                 HomeController homeController = new HomeController(context);
-                var responseFuncionario = homeController.GetPorStatus("ATIVO");
-
-                Assert.IsNotNull(responseFuncionario);
-                Assert.IsNotNull(responseFuncionario.Value);
-                Assert.IsNotNull(responseFuncionario.Value.Count > 0);
-
                 var funcionario = new Funcionarios { IdFuncionario = 1,
                     DataCad = DateTime.Parse("16/04/2017"),
                     Cargo = "Analista Jr",
@@ -376,19 +344,75 @@ namespace Tests
             using (var context = new StunningContext(options))
             {
                 HomeController homeController = new HomeController(context);
-                var responseFuncionario = homeController.GetPorStatus("ATIVO");
 
-                Assert.IsNotNull(responseFuncionario);
-                Assert.IsNotNull(responseFuncionario.Value);
-                Assert.IsNotNull(responseFuncionario.Value.Count > 0);
-
-                var funcionario = new Funcionarios { IdFuncionario = 23, DataCad = DateTime.Parse("02/04/2017"), Cargo = "AC Pl", Cpf = "68557675240", Nome = "Adolph Abajian", UfNasc = "MS", Salario = 3429.10, Status = "ATIVO" };
+                var funcionario = new Funcionarios { IdFuncionario = 1, DataCad = DateTime.Parse("02/04/2017"), Cargo = "AC Pl", Cpf = "68557675240", Nome = "Adolph Abajian", UfNasc = "MS", Salario = 3429.10, Status = "ATIVO" };
 
                 var success = homeController.Put(1, funcionario);
                 Assert.AreEqual(success.Value, false);
             }
         }
+
+        [Test]
+        public void DeleteIncorreto()
+        {
+            var options = new DbContextOptionsBuilder<StunningContext>()
+    .UseInMemoryDatabase(databaseName: "TesteFuncionario")
+    .Options;
+            using (var context = new StunningContext(options))
+            {
+                HomeController homeController = new HomeController(context);
+
+                var funcionario = new Funcionarios { IdFuncionario = 23, DataCad = DateTime.Parse("02/04/2017"), Cargo = "AC Pl", Cpf = "68557675240", Nome = "Adolph Abajian", UfNasc = "MS", Salario = 3429.10, Status = "ATIVO" };
+
+                var success = homeController.Delete(funcionario);
+                Assert.AreEqual(success.Value, false);
+            }
+        }
+        [Test]
+        public void DeleteCorreto()
+        {
+            var options = new DbContextOptionsBuilder<StunningContext>()
+    .UseInMemoryDatabase(databaseName: "TesteFuncionario")
+    .Options;
+            using (var context = new StunningContext(options))
+            {
+                HomeController homeController = new HomeController(context);
+                var funcionario = new Funcionarios { IdFuncionario = 1, DataCad = DateTime.Parse("02/04/2017"), Cargo = "AC Pl", Cpf = "68557675240", Nome = "Adolph Abajian", UfNasc = "MS", Salario = 3429.10, Status = "ATIVO" };
+
+                var success = homeController.Delete(funcionario);
+                Assert.AreEqual(success.Value, true);
+            }
+        }
+        [Test]
+        public void DeleteCpfInCorreto()
+        {
+            var options = new DbContextOptionsBuilder<StunningContext>()
+    .UseInMemoryDatabase(databaseName: "TesteFuncionario")
+    .Options;
+            using (var context = new StunningContext(options))
+            {
+                HomeController homeController = new HomeController(context);
+
+                var funcionario = new Funcionarios { IdFuncionario = 23, DataCad = DateTime.Parse("02/04/2017"), Cargo = "AC Pl", Cpf = "68557675240", Nome = "Adolph Abajian", UfNasc = "MS", Salario = 3429.10, Status = "ATIVO" };
+
+                var success = homeController.Delete("1");
+                Assert.AreEqual(success.Value, false);
+            }
+        }
+        [Test]
+        public void DeleteCPFCorreto()
+        {
+            var options = new DbContextOptionsBuilder<StunningContext>()
+    .UseInMemoryDatabase(databaseName: "TesteFuncionario")
+    .Options;
+            using (var context = new StunningContext(options))
+            {
+                HomeController homeController = new HomeController(context);
+                var funcionario = new Funcionarios { IdFuncionario = 23, DataCad = DateTime.Parse("02/04/2017"), Cargo = "AC Pl", Cpf = "68557675240", Nome = "Adolph Abajian", UfNasc = "MS", Salario = 3429.10, Status = "ATIVO" };
+
+                var success = homeController.Delete("41851452257");
+                Assert.AreEqual(success.Value, true);
+            }
+        }
     }
-
-
 }

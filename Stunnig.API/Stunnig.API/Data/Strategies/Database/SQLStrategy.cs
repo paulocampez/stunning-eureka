@@ -40,10 +40,18 @@ namespace Stunnig.API.Models.Strategies.Database
         }
         public bool Delete(Funcionarios funcionario)
         {
-            Funcionarios funcionarios = _context.Funcionarios.Find(funcionario.IdFuncionario);
-            _context.Funcionarios.Remove(funcionarios);
-            _context.SaveChanges();
-            return true;
+            try
+            {
+                Funcionarios funcionarios = _context.Funcionarios.Find(funcionario.IdFuncionario);
+                _context.Funcionarios.Remove(funcionarios);
+                _context.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<Funcionarios> GetFuncionarios()
@@ -97,14 +105,24 @@ namespace Stunnig.API.Models.Strategies.Database
 
         public bool DeletePorCpf(string cpf)
         {
-            List<Funcionarios> funcionarios = _context.Funcionarios.Where(p => p.Cpf == cpf).ToList();
+            try
+            {
+                List<Funcionarios> funcionarios = _context.Funcionarios.Where(p => p.Cpf == cpf).ToList();
+                if (funcionarios.Count == 0)
+                    return false;
 
-            foreach (var funcionario in funcionarios)
-                _context.Funcionarios.Remove(funcionario);
+                foreach (var funcionario in funcionarios)
+                    _context.Funcionarios.Remove(funcionario);
 
-            _context.SaveChanges();
+                _context.SaveChanges();
 
-            return true;
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
 
         public List<Funcionarios> GetFuncionariosAgrupadosPorUF(string UF)

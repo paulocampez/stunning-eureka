@@ -97,12 +97,14 @@ namespace Stunnig.API.Controllers
         /// <returns></returns>
         /// 
         [Microsoft.AspNetCore.Mvc.HttpDelete]
-        public void Delete([FromBody] Funcionarios funcionarios)
+        public ActionResult<bool>  Delete([FromBody] Funcionarios funcionarios)
         {
 
             //var context = new Context(new FileStrategy());
             var context = new SQLStrategy(_context);
-            context.Delete(funcionarios);
+            var success = context.Delete(funcionarios);
+
+            return success;
         }
         /// <summary>
         /// Deleta Funcionario por CPF
@@ -111,11 +113,12 @@ namespace Stunnig.API.Controllers
         /// <returns></returns>
         /// 
         [Microsoft.AspNetCore.Mvc.HttpDelete("{cpf}")]
-        public void Delete(string cpf)
+        public ActionResult<bool> Delete(string cpf)
         {
             //var context = new Context(new FileStrategy());
             var context = new SQLStrategy(_context);
-            context.DeletePorCpf(cpf);
+            var success = context.DeletePorCpf(cpf);
+            return success;
         }
         /// <summary>
         /// Retorna Funcionarios Filtrados Por CPF
