@@ -4,12 +4,15 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>Projeto de teste para LuizaLabs. Acessar o menu de @Html.ActionLink("Funcionarios", "Index", "Funcionario") para interagir</p>
+<p>Projeto de teste. Acessar o menu de @Html.ActionLink("Funcionarios", "Index", "Funcionario") para interagir</p>
 
 
 
 
 <h1>Consumindo os servicos criados:</h1>
+
+<p>@Html.ActionLink("Consulta geral", "Index", "Funcionario")</p>
+
 <p>@Html.ActionLink("a. Serviço que localiza/retorna funcionários por Nome", "BuscaNome", "Funcionario")</p>
 <p>@Html.ActionLink("b. Serviço que localiza/retorna funcionários por CPF", "BuscaCPF", "Funcionario")</p>
 <p>@Html.ActionLink("c. Serviço que localiza/retorna funcionários por Cargo", "BuscaCargo", "Funcionario")</p>

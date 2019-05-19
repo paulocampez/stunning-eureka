@@ -29,7 +29,7 @@ namespace Stunning.MVC.Controllers
             ViewBag.UfNasc = lstUf;
             double salIni = new double();
             double salFim = new double();
-            //TODO: Search na BLL
+
             if (!string.IsNullOrEmpty(Nome))
                 lstFuncionarios = lstFuncionarios.Where(p => p.Nome.Contains(Nome)).ToList();
 
@@ -119,7 +119,6 @@ namespace Stunning.MVC.Controllers
             else
                 funcionario.Salario = salario;
             funcionario.UfNasc = collection["UfNasc"].ToString();
-            //TODO: Jogar para BLL
             try
             {
                 using (var client = new HttpClient())
@@ -258,7 +257,7 @@ namespace Stunning.MVC.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+
 
                 return RedirectToAction(nameof(Index));
             }

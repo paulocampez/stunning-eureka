@@ -16,8 +16,6 @@ namespace Tests
     public class Tests
     {
         public StunningContext _context;
-
-
         [SetUp]
         public void Setup()
         {
@@ -61,8 +59,6 @@ namespace Tests
 
             }
         }
-
-
         [Test]
         public void CargoInexistente()
         {
@@ -154,7 +150,6 @@ namespace Tests
             }
         }
         #endregion
-
         [Test]
         public void GetSuccess()
         {
@@ -172,7 +167,6 @@ namespace Tests
             }
 
         }
-
         [Test]
         public void CargoExistente()
         {
@@ -311,7 +305,6 @@ namespace Tests
 
             }
         }
-
         [Test]
         public void ValidarEdit()
         {
@@ -351,7 +344,6 @@ namespace Tests
                 Assert.AreEqual(success.Value, false);
             }
         }
-
         [Test]
         public void DeleteIncorreto()
         {
