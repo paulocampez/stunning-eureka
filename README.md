@@ -58,4 +58,5 @@ Install-Package Swashbuckle.AspNetCore -Version 4.0.1
 ``` 
 update-database
 ```
-
+- Adicionar caminho do XML nas configurações do projeto Stunnig.API
+![ASPNETCOREWebAPIVersions](./github/xml.png)
