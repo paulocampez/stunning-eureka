@@ -55,7 +55,8 @@ Install-Package Swashbuckle.AspNetCore -Version 4.0.1
 ## Como Testar
 - Para testar a aplicação MVC é necessário rodar o WebAPI para realizar as consultas.
 - Configurar connection strings com o string de conexão do banco. 
-ex ``` "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=Stunning;Trusted_Connection=True;MultipleActiveResultSets=true" ``` 
+ex ``` "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=Stunning;Trusted_Connection=True;MultipleActiveResultSets=true" ```
+no caminho ```\Stunnig.API\Stunnig.API\appsettings.json```
 - Update Database (Entity Framework)
 ``` 
 update-database
