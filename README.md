@@ -6,6 +6,12 @@ Este repositório contém uma controller ```Funcionario``` onde contém a chamad
 
 Veja aqui alguns exemplos: 
 
+# Ambiente
+API
+```https://ledacards20190524012526.azurewebsites.net/```
+MVC
+```https://stunningmvc20190613055432.azurewebsites.net/```
+
 ## Swagger
 
 ``` http://localhost:59279/index.html ```
