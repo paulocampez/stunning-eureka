@@ -74,7 +74,7 @@ namespace Stunning.MVC.Controllers
         public List<Funcionarios> GetFuncionario()
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
-            string url = "http://localhost:59279/api/Home/";
+            string url = "https://ledacards20190524012526.azurewebsites.net//api/Home/";
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
             getRequest.Method = "GET";
             try
@@ -123,7 +123,7 @@ namespace Stunning.MVC.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:59279/api/Home");
+                    client.BaseAddress = new Uri("https://ledacards20190524012526.azurewebsites.net//api/Home");
 
                     //HTTP POST
                     var postTask = client.PostAsJsonAsync<Funcionarios>("Home", funcionario);
@@ -181,7 +181,7 @@ namespace Stunning.MVC.Controllers
                 {
                     using (var client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://localhost:59279/api/" + id);
+                        client.BaseAddress = new Uri("https://ledacards20190524012526.azurewebsites.net//api/" + id);
 
                         //HTTP POST
                         var postTask = client.PutAsJsonAsync<Funcionarios>("Home/" + id, funcionario);
@@ -221,13 +221,13 @@ namespace Stunning.MVC.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:59279/api/Home");
+                    client.BaseAddress = new Uri("https://ledacards20190524012526.azurewebsites.net//api/Home");
 
                     //HTTP DELETE
                     var request = new HttpRequestMessage
                     {
                         Method = HttpMethod.Delete,
-                        RequestUri = new Uri("http://localhost:59279/api/Home"),
+                        RequestUri = new Uri("https://ledacards20190524012526.azurewebsites.net//api/Home"),
                         Content = new StringContent(JsonConvert.SerializeObject(funcionario), Encoding.UTF8, "application/json")
                     };
                     var response = client.SendAsync(request);
@@ -269,12 +269,20 @@ namespace Stunning.MVC.Controllers
         public ActionResult BuscaNome(string Nome)
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
-
-            if (!string.IsNullOrEmpty(Nome))
+            try
             {
-                string url = "http://localhost:59279/api/Home/BuscaNome/" + Nome.Replace(" ", "%20");
-                lstFuncionarios = GetByUrl(url);
+                if (!string.IsNullOrEmpty(Nome))
+                {
+                    string url = "https://ledacards20190524012526.azurewebsites.net//api/Home/BuscaNome/" + Nome.Replace(" ", "%20");
+                    lstFuncionarios = GetByUrl(url);
+                }
             }
+            catch (Exception)
+            {
+
+                return View(lstFuncionarios);
+            }
+          
 
             return View(lstFuncionarios);
         }
@@ -294,19 +302,26 @@ namespace Stunning.MVC.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception("erro api");
+                throw new Exception("Funcionario não encontrado");
             }
 
         }
         public ActionResult BuscaCPF(string CPF)
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
-
-            if (!string.IsNullOrEmpty(CPF))
+            try
             {
-                string url = "http://localhost:59279/api/Home/BuscaCPF/" + CPF.Replace(" ", "%20");
-                lstFuncionarios = GetByUrl(url);
+                if (!string.IsNullOrEmpty(CPF))
+                {
+                    string url = "https://ledacards20190524012526.azurewebsites.net//api/Home/BuscaCPF/" + CPF.Replace(" ", "%20");
+                    lstFuncionarios = GetByUrl(url);
+                }
             }
+            catch (Exception)
+            {
+                return View(lstFuncionarios);
+            }
+         
 
             return View(lstFuncionarios);
         }
@@ -316,7 +331,7 @@ namespace Stunning.MVC.Controllers
 
             if (!string.IsNullOrEmpty(Cargo))
             {
-                string url = "http://localhost:59279/api/Home/BuscaCargo/" + Cargo.Replace(" ", "%20");
+                string url = "https://ledacards20190524012526.azurewebsites.net//api/Home/BuscaCargo/" + Cargo.Replace(" ", "%20");
                 lstFuncionarios = GetByUrl(url);
             }
 
@@ -325,12 +340,19 @@ namespace Stunning.MVC.Controllers
         public ActionResult BuscaRangeData(DateTime? DataInicio, DateTime? DataFim)
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
-
-            if (DataInicio.HasValue && DataFim.HasValue)
+            try
             {
-                string url = "http://localhost:59279/api/Home/BuscaData/" + DataInicio.Value.ToString("yyyy-MM-dd") + "/" + DataFim.Value.ToString("yyyy-MM-dd");
-                lstFuncionarios = GetByUrl(url);
+                if (DataInicio.HasValue && DataFim.HasValue)
+                {
+                    string url = "https://ledacards20190524012526.azurewebsites.net//api/Home/BuscaData/" + DataInicio.Value.ToString("yyyy-MM-dd") + "/" + DataFim.Value.ToString("yyyy-MM-dd");
+                    lstFuncionarios = GetByUrl(url);
+                }
             }
+            catch (Exception)
+            {
+                return View(lstFuncionarios);
+            }
+           
 
             return View(lstFuncionarios);
         }
@@ -340,7 +362,7 @@ namespace Stunning.MVC.Controllers
 
             if (!string.IsNullOrEmpty(UF))
             {
-                string url = "http://localhost:59279/api/Home/BuscaUF/" + UF;
+                string url = "https://ledacards20190524012526.azurewebsites.net//api/Home/BuscaUF/" + UF;
                 lstFuncionarios = GetByUrl(url);
             }
 
@@ -349,24 +371,40 @@ namespace Stunning.MVC.Controllers
         public ActionResult BuscaRangeSalarial(double? salarioInicio, double? salarioFim)
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
-
-            if (salarioInicio != null && salarioFim != null)
+            try
             {
-                string url = "http://localhost:59279/api/Home/BuscaSalario/" + salarioInicio + "/" + salarioFim;
-                lstFuncionarios = GetByUrl(url);
+                if (salarioInicio != null && salarioFim != null)
+                {
+                    string url = "https://ledacards20190524012526.azurewebsites.net//api/Home/BuscaSalario/" + salarioInicio + "/" + salarioFim;
+                    lstFuncionarios = GetByUrl(url);
+                }
             }
+            catch (Exception)
+            {
+
+                return View(lstFuncionarios);
+            }
+            
 
             return View(lstFuncionarios);
         }
         public ActionResult BuscaStatus(string Status)
         {
             List<Funcionarios> lstFuncionarios = new List<Funcionarios>();
-
-            if (!string.IsNullOrEmpty(Status))
+            try
             {
-                string url = "http://localhost:59279/api/Home/BuscaStatus/" + Status;
-                lstFuncionarios = GetByUrl(url);
+                if (!string.IsNullOrEmpty(Status))
+                {
+                    string url = "https://ledacards20190524012526.azurewebsites.net//api/Home/BuscaStatus/" + Status;
+                    lstFuncionarios = GetByUrl(url);
+                }
             }
+            catch (Exception)
+            {
+
+                return View(lstFuncionarios);
+            }
+            
 
             return View(lstFuncionarios);
         }
@@ -379,13 +417,13 @@ namespace Stunning.MVC.Controllers
                 {
                     using (var client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://localhost:59279/api/Home");
+                        client.BaseAddress = new Uri("https://ledacards20190524012526.azurewebsites.net//api/Home");
 
                         //HTTP DELETE
                         var request = new HttpRequestMessage
                         {
                             Method = HttpMethod.Delete,
-                            RequestUri = new Uri("http://localhost:59279/api/Home/" + cpf),
+                            RequestUri = new Uri("https://ledacards20190524012526.azurewebsites.net//api/Home/" + cpf),
                         };
                         var response = client.SendAsync(request);
                         response.Wait();

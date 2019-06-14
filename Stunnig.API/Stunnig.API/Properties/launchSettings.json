@@ -3,7 +3,7 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:59279",
+      "applicationUrl": "https://ledacards20190524012526.azurewebsites.net/",
       "sslPort": 0
     }
   },
