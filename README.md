@@ -6,6 +6,13 @@ Este repositório contém uma controller ```Funcionario``` onde contém a chamad
 
 Veja aqui alguns exemplos: 
 
+# Ambiente
+API
+```https://ledacards20190524012526.azurewebsites.net/```
+
+MVC
+```https://stunningmvc20190613055432.azurewebsites.net/```
+
 ## Swagger
 
 ``` http://localhost:59279/index.html ```
@@ -54,8 +61,12 @@ Install-Package Swashbuckle.AspNetCore -Version 4.0.1
 
 ## Como Testar
 - Para testar a aplicação MVC é necessário rodar o WebAPI para realizar as consultas.
+- Configurar connection strings com o string de conexão do banco. 
+ex ``` "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=Stunning;Trusted_Connection=True;MultipleActiveResultSets=true" ```
+no caminho ```\Stunnig.API\Stunnig.API\appsettings.json```
 - Update Database (Entity Framework)
 ``` 
 update-database
 ```
-
+- Adicionar caminho do XML nas configurações do projeto Stunnig.API
+![ASPNETCOREWebAPIVersions](./github/xml.png)
